@@ -1,0 +1,238 @@
+{
+  "main": {
+    "id": "8f59920074817a4d",
+    "type": "split",
+    "children": [
+      {
+        "id": "d1295b74ee63143b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bdb5d826a69f274a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Holmes部署.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Holmes部署"
+            }
+          },
+          {
+            "id": "df49d788a37daf2f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OpenCompass部署.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OpenCompass部署"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2e60bf69c6f6c89c",
+    "type": "split",
+    "children": [
+      {
+        "id": "5d69f7d5fa171503",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1b2bc2ae166a0f02",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "1c5806c78a821f53",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#sdf",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "74825b1a1bf47e77",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "35d988a90e1bcba9",
+    "type": "split",
+    "children": [
+      {
+        "id": "7028d8c5bd699217",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a844ae4b53db067",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "OpenCompass部署.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "OpenCompass部署 的反向链接列表"
+            }
+          },
+          {
+            "id": "d5900e5aed3b24aa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "OpenCompass部署.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "OpenCompass部署 的出链列表"
+            }
+          },
+          {
+            "id": "ff319d326f6ae9b2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "a6cec129af0d421f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
+          {
+            "id": "a3d08abe2bc47f25",
+            "type": "leaf",
+            "state": {
+              "type": "chronology-calendar-view",
+              "state": {},
+              "icon": "clock",
+              "title": "Chronology"
+            }
+          },
+          {
+            "id": "a2b9a96c291160f0",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
+            "id": "f00ee5edc40f5830",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "c037ff6e675501c1",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 582.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "graph:查看关系图谱": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false,
+      "chronology:Open Chronology": false,
+      "switcher:打开快速切换": false,
+      "copilot:Copilot Chat": false,
+      "canvas:新建白板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "workspaces:管理工作区布局": false
+    }
+  },
+  "active": "df49d788a37daf2f",
+  "lastOpenFiles": [
+    "Holmes部署.md",
+    "OpenCompass部署.md",
+    "未命名 1.canvas",
+    "未命名.canvas",
+    "copilot-conversations/hi@20241106_165420.md",
+    "copilot-conversations/hi@20241106_165631.md",
+    "copilot-conversations"
+  ]
+}
