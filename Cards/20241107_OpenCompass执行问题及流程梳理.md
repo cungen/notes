@@ -42,22 +42,22 @@ KeyError: 'role'
 |-- |-- |-- runner = RUNNERS.build(cfg.infer.runner)
 |-- |-- |-- runner(tasks) # 开始执行
 
-# LocalRunner: opencompass.runners.local
+# LocalRunner: opencompass.runners.local # 定义任务执行流程
 |-- BaseRunner 
 |-- |-- __call__
 |-- |-- self.launch(tasks)
 |-- |-- self.summarize(status_list) 
 |-- launch
-|-- _launch # !! 3.主要流程!!
+|-- _launch # 分task起process
 |-- |-- task.get_command
 |-- |-- subprocess.run(cmd, **)
 
-# OpenICLInferTask执行 src/opencompass/opencompass/tasks/openicl_infer.py
+# OpenICLInferTask执行 src/opencompass/opencompass/tasks/openicl_infer.py # 推理任务
 |-- get_command
-|-- run # !! 4. run
-|-- build_model_from_cfg
+|-- run
+|-- self.model = build_model_from_cfg(model_cfg) # 实例化模型
 |-- _inference
-|-- |-- inferencer = ICL_INFERENCERS.build(inferencer_cfg) # 一般是GenInferencer
+|-- |-- inferencer = ICL_INFERENCERS.build(inferencer_cfg) # 从数据集的infer_cfg中获取具体的inferencer，一般是GenInferencer
 |-- |-- inferencer.inference(retriever, **)
 
 # GenInferencer: opencompass.openicl.icl_inferencer.icl_gen_inferencer.py
@@ -82,25 +82,22 @@ KeyError: 'role'
 
 - 最终是要调用的 APITemplateParser.parse_template，这个类有2处，分别位于base_api和icl_inferencer
 - 出问题的数据集`lcbench` 他的`inferencer`是`GenInferencer`，理应调用`base_api` 里的 `APITemplateParser.parse_template`，但实际调用了 `icl_inferencer` 里的，而 `teval` 数据配置的`inferencer`为`ChatInferencer`，会调用 `icl_inferencer` 里的
-- 所以怀疑是task量为1时，lcbench在leval数据后运行时，复用了`eval`的`APITemplateParser`
-- TODO，记得部署环境
-	- 查看最终生成配置信息，配置信息里 `lcbench` 还是配置为 `GenInferencer`，没毛病
-	- 了解任务分配逻辑
-		- 在`tasks.openicl_infer --> OpenICLInferTask.run` 中，有类似这样的逻辑
-			```python
-			for dataset_cfg in dataset_cfgs:
-                self.model_cfg = model_cfg
-                self.dataset_cfg = dataset_cfg
-                self.infer_cfg = self.dataset_cfg['infer_cfg']
-                self.dataset = build_dataset_from_cfg(self.dataset_cfg)
-                self.sub_cfg = {
-                    'models': [self.model_cfg],
-                    'datasets': [[self.dataset_cfg]],
-                }
-                out_path = get_infer_output_path(
-                    self.model_cfg, self.dataset_cfg,
-                    osp.join(self.work_dir, 'predictions'))
-                if osp.exists(out_path):
-                    continue
-                self._inference()
+- 所以怀疑是task量为1时，`lcbench`在`leval`数据后运行时，复用了`eval`的`APITemplateParser`
+- 了解任务分配逻辑
+
+## 结论
+
+- 是`teval`使用的`ChatInferencer`，修改了模型的`template_parser`，而该`parser`不兼容其他数据集的处理，导致报错
+	- 在`icl_inferencer.icl_chat_inferencer.py --> ChatInferencer`中有以下逻辑
+		```python
+	def __init__(**):
+	    self._set_meta_template(self.model)
+
+    def _set_meta_template(self, model):
+        origin = model.template_parser
+        if isinstance(origin, _APITemplateParser): # _APITemplateParser来自 base_api.py
+            model.template_parser = APITemplateParser(origin.meta_template) # 但此处的 APITemplateParser 来自于当前文件，导致后续模型的template_parser都为该文件的APITemplateParser，而不是base_api里的那个类，导致后续处理失败
+        if isinstance(origin, _LMTemplateParser):
+            model.template_parser = LMTemplateParser(origin.meta_template)
+		
 ```

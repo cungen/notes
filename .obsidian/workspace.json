@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "8f59920074817a4d",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "3fb997a43a94bf19",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "e262307b7c56c40b",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -22,37 +22,8 @@
               "icon": "lucide-file",
               "title": "HOME"
             }
-          },
-          {
-            "id": "e9d10b1f7e0b32fb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cards/20241107_OpenCompass执行问题及流程梳理.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "20241107_OpenCompass执行问题及流程梳理"
-            }
-          },
-          {
-            "id": "5b905762ff0dcc94",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cards/241107_Holmes部署.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "241107_Holmes部署"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,11 +85,13 @@
               "title": "Tag Folder"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 370.5026054382324
+    "width": 498.5026054382324,
+    "collapsed": true
   },
   "right": {
     "id": "35d988a90e1bcba9",
@@ -180,10 +153,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cards/241107_Holmes部署.md"
+                "file": "HOME.md"
               },
               "icon": "lucide-list",
-              "title": "241107_Holmes部署 的大纲"
+              "title": "HOME 的大纲"
             }
           },
           {
@@ -221,7 +194,7 @@
             }
           },
           {
-            "id": "c037ff6e675501c1",
+            "id": "7c10896e25a58a2f",
             "type": "leaf",
             "state": {
               "type": "copilot-chat-view",
@@ -257,14 +230,17 @@
   },
   "active": "a2b9a96c291160f0",
   "lastOpenFiles": [
-    "Cards/241107_OpenCompass部署步骤.md",
-    "Cards/241107_Holmes部署.md",
     "HOME.md",
+    "Cards/241111_Git PreCommit for Python.md",
+    "Cards/241112_Git PreCommit for Vue.md",
+    "Cards/241107_Holmes部署.md",
+    "Cards/241109_打榜TODO.md",
+    "Cards/template.md",
     "Cards/20241107_OpenCompass执行问题及流程梳理.md",
+    "Cards/241107_模型服务FastChat及Sglang升级步骤.md",
+    "Cards/241107_OpenCompass部署步骤.md",
     "Cards/241108_好用的LLM API管理.md",
     "Area Dev.md",
-    "Cards/template.md",
-    "Cards/241107_模型服务FastChat及Sglang升级步骤.md",
     "pininfo.md",
     "未命名.canvas",
     "Excalidraw/Drawing 2024-11-07 15.47.03.excalidraw.md",
