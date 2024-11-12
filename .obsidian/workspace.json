@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#temp",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,11 +86,11 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 498.5026054382324,
+    "width": 302.5026054382324,
     "collapsed": true
   },
   "right": {
@@ -228,14 +228,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a2b9a96c291160f0",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
     "HOME.md",
+    "Cards/241113_MiniCPM3.0无限长文本.md",
+    "Cards/241109_打榜TODO.md",
+    "Cards/template.md",
     "Cards/241111_Git PreCommit for Python.md",
     "Cards/241112_Git PreCommit for Vue.md",
     "Cards/241107_Holmes部署.md",
-    "Cards/241109_打榜TODO.md",
-    "Cards/template.md",
     "Cards/20241107_OpenCompass执行问题及流程梳理.md",
     "Cards/241107_模型服务FastChat及Sglang升级步骤.md",
     "Cards/241107_OpenCompass部署步骤.md",
@@ -266,7 +267,6 @@
     "领域",
     "未命名 1.canvas",
     "copilot-conversations/hi@20241106_165420.md",
-    "copilot-conversations/hi@20241106_165631.md",
     "copilot-conversations"
   ]
 }
