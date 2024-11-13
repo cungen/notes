@@ -29,4 +29,5 @@ pre-commit run --all-files -c ***.yaml
 
 
 > [!INFO] Vue Git PreCommit 
-[[241111_Git PreCommit for Python]]
+> [[241112_Git PreCommit for Vue]]
+
