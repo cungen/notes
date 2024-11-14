@@ -3,6 +3,7 @@
 ## Recent Docs
 
 [[241111_Git PreCommit for Python]]
+[[241114_How o1 works论文]]
 
 ## Guideline
 
