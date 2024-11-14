@@ -42,6 +42,16 @@ KeyError: 'role'
 |-- |-- |-- runner = RUNNERS.build(cfg.infer.runner)
 |-- |-- |-- runner(tasks) # 开始执行
 
+#eval 阶段
+|-- |-- |-- fill_eval_cfg(cfg, args)
+|-- |-- |-- |-- runner=dict(task=dict(type=get_config_type(OpenICLEvalTask))) # !! 2.指定task类型!!
+|-- |-- |-- runner = RUNNERS.build(cfg.infer.runner)
+|-- |-- |-- runner(tasks) # 开始执行
+
+# summary | visualize阶段
+# --
+
+
 # LocalRunner: opencompass.runners.local # 定义任务执行流程
 |-- BaseRunner 
 |-- |-- __call__
