@@ -3,7 +3,7 @@
   "promptDelete": false,
   "showLineNumber": false,
   "livePreview": true,
-  "defaultViewMode": "source",
+  "defaultViewMode": "preview",
   "readableLineLength": false,
   "alwaysUpdateLinks": true,
   "showRibbon": true
