@@ -22,6 +22,7 @@
 
 [https://github.com/hijkzzz/Awesome-LLM-Strawberry](https://github.com/hijkzzz/Awesome-LLM-Strawberry)
 
+https://arxiv.org/html/2411.07191v1
 ## Key Points
 
 - Learn to refine the thinking process

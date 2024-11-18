@@ -2,7 +2,16 @@
 
 ## TODOS
 
+- 知识召回 embedding duckdb 及 asking
+	- 做一个简单的基于某个网站的知识搜索，like ray?
+- long context [[241113_MiniCPM3.0无限长文本]] , memory
+- vscode插件，做功能集成
+
 #Inbox 
+
+## Reading
+
+- [ ] https://nlp.seas.harvard.edu/annotated-transformer/
 
 ## Recent Docs
 
