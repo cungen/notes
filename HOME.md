@@ -6,7 +6,9 @@
 - 知识召回 embedding duckdb 及 asking
 	- 做一个简单的基于某个网站的知识搜索，like ray?
 - long context [[241113_MiniCPM3.0无限长文本]] , memory
+- https://ai-bot.cn/tulu-3-ai2/ 参考其评测
 - vscode插件，做功能集成
+![[Pasted image 20241126110340.png]]
 
 #Inbox 
 
@@ -16,11 +18,5 @@
 
 ## Recent Docs
 
-[[241117_Docker使用技巧]]
 [[241111_Git PreCommit for Python]]
 [[241114_How o1 works论文]]
-
-## Guideline
-
-[[241107_Holmes部署]]
-[[241107_OpenCompass部署步骤]]
