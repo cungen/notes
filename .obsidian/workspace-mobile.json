@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HOME.md",
-                "mode": "preview",
+                "file": "Cards/241213_一人之下语录.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -44,7 +44,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "tag:#home",
+            "query": "tag:#Inbox",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -83,7 +83,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 1
   },
   "right": {
     "id": "51a17f0b402a1e8a",
@@ -95,7 +95,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "HOME.md",
+            "file": "Cards/241213_一人之下语录.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "HOME.md",
+            "file": "Cards/241213_一人之下语录.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -124,7 +124,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "HOME.md"
+            "file": "Cards/241213_一人之下语录.md"
           }
         }
       },
@@ -149,7 +149,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "homepage:Open homepage": false,
       "markdown-importer:Open format converter": false,
       "zk-prefixer:Create new unique note": false,
       "switcher:Open quick switcher": false,
@@ -162,47 +161,49 @@
       "obsidian-git:Open Git source control": false,
       "chronology:Open Chronology": false,
       "copilot:Copilot Chat": false,
+      "homepage:Open homepage": false,
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Cards/241213_一人之下语录.md",
+    "Cards/241212_想学的东西太多，而自己能力有限怎么办.md",
+    "Cards/241211_新年祝福.md",
+    "Cards/241210_钢琴谱 卡农.md",
+    "Attachments/4b7d5bcb$3f75$47c3$9bae$0900ce1cafa3_1514_917_1713537768822210_original_105539.jpg",
+    "Attachments/4b7d5bcb$3f75$47c3$9bae$0900ce1cafa3_1027_551_1713537768762122_original_105523.jpg",
+    "Cards/241118_llya推荐的30篇论文.md",
+    "Cards/241122_Self Attension.md",
     "HOME.md",
-    "Cards/241114_主观评测流程.md",
-    "APasted image 20241114093927.png.md",
-    "Cards/241117_Docker使用技巧.md",
-    "Cards/241107_模型服务FastChat及Sglang升级步骤.md",
+    "Excalidraw/LLM_Gateway_241122_112549.excalidraw.md",
+    "Excalidraw/LLM_Gateway Flow 241107_154703.excalidraw.md",
+    "Cards/241205_Holmes-FE部署.md",
+    "Cards/241204_AutoCode_Mumaniu.md",
+    "Cards/241203_预训练和微调.md",
+    "Cards/241203_python代码规范.md",
+    "Cards/241202_Claude的MCP协议介绍.md",
+    "Cards/241201_Mac软件推荐.md",
+    "Cards/241130_vi使用技巧.md",
+    "Cards/241129_aerospace Mac上的i3窗口管理器.md",
+    "Cards/241128_黄仁勋的CEO与领导心得.md",
+    "Cards/241127_理解Pass@k.md",
+    "Cards/241126_Agent思考模型和智能体架构.md",
+    "Attachments/Pasted image 20241126110340.png",
+    "Attachments/Pasted image 20241121142130.png",
+    "Attachments/Pasted image 20241121141830.png",
+    "/HOME.md",
+    "/Excalidraw/LLM_Gateway_241122_112549.excalidraw.md",
+    "/Excalidraw/LLM_Gateway Flow 241107_154703.excalidraw.md",
+    "/Cards/241205_Holmes-FE部署.md",
+    "/Cards/241204_AutoCode_Mumaniu.md",
+    "/Cards/241203_预训练和微调.md",
+    "/Attachments/Pasted image 20241126110340.png",
+    "/Attachments/Pasted image 20241121142130.png",
+    "/Attachments/Pasted image 20241121141830.png",
     "Attachments/Pasted image 20241114094132.png",
     "Attachments/Pasted image 20241114094001.png",
-    "Attachments/Pasted image 20241114093927.png",
     "Attachments",
-    "Pasted image 20241114094132.png",
-    "Pasted image 20241114094001.png",
-    "Pasted image 20241114093927.png",
-    "Cards/241116_Agent工作流设计模式.md",
-    "Cards/241115_o1_Prompt.md",
-    "/Pasted image 20241114094132.png",
-    "/Pasted image 20241114094001.png",
-    "/Pasted image 20241114093927.png",
-    "/HOME.md",
-    "/Cards/241117_Docker使用技巧.md",
-    "/Cards/241116_Agent工作流设计模式.md",
-    "/Cards/241115_o1_Prompt.md",
-    "/Cards/241114_主观评测流程.md",
-    "/Cards/241112_Git PreCommit for Vue.md",
-    "/Cards/241111_标签合集.md",
-    "/Cards/241109_打榜TODO.md",
-    "/Cards/20241107_OpenCompass执行问题及流程梳理.md",
-    "Cards/241114_How o1 works论文.md",
-    "Cards/241111_Git PreCommit for Python.md",
-    "Cards/241113_MiniCPM3.0无限长文本.md",
-    "Cards/241112_Git PreCommit for Vue.md",
-    "Cards/241111_标签合集.md",
-    "Cards/241109_打榜TODO.md",
-    "/Cards/template.md",
-    "/Cards/241114_How o1 works论文.md",
-    "/Cards/241113_MiniCPM3.0无限长文本.md",
-    "/Cards/241111_Git PreCommit for Python.md",
     "Excalidraw",
     "Cards",
     "/Excalidraw",
