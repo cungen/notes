@@ -8,6 +8,21 @@
 - long context [[241113_MiniCPM3.0无限长文本]] , memory
 - https://ai-bot.cn/tulu-3-ai2/ 参考其评测
 - vscode插件，做功能集成
+
+## 目标
+
+
+
+
+
+
+
+
+
+
+
+
+
 - Agent Stack
 	![[Pasted image 20241126110340.png]]
 
