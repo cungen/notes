@@ -1,0 +1,7 @@
+:root{
+  --max-width:  100%;/* Amount of padding around the text, use 90% for narrower padding */
+  --line-width: 60rem; /* Maximum characters per line */
+}
+body {
+  --file-line-width: var(--line-width); 
+}

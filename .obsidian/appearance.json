@@ -4,5 +4,8 @@
   "cssTheme": "Border",
   "baseFontSizeAction": true,
   "theme": "system",
-  "baseFontSize": 18
+  "baseFontSize": 18,
+  "enabledCssSnippets": [
+    "page-width"
+  ]
 }
