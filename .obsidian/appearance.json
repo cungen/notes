@@ -3,5 +3,6 @@
   "translucency": true,
   "cssTheme": "Border",
   "baseFontSizeAction": true,
-  "theme": "obsidian"
+  "theme": "system",
+  "baseFontSize": 18
 }

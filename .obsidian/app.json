@@ -4,8 +4,9 @@
   "showLineNumber": false,
   "livePreview": true,
   "defaultViewMode": "preview",
-  "readableLineLength": false,
+  "readableLineLength": true,
   "alwaysUpdateLinks": true,
   "showRibbon": true,
-  "attachmentFolderPath": "/Attachments"
+  "attachmentFolderPath": "/Attachments",
+  "showInlineTitle": true
 }
