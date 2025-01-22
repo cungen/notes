@@ -1,11 +1,24 @@
 #home 
 ## TODO_trivial
 
-- 安装飞牛
 - battle重构
 - 🔥 chat页面自己开发还是使用开源？
 	- lobechat调研
-
+- 平台优化
+	- 问题修复：主观diff
+	- 任务分发
+	- 框架优化
+	- 架构升级
+- model & chat 升级 infer优化
+	- 快速上线
+	- 快速对话
+	- local & api统一管理
+- llama factory了解
+- 探索新的软件开发方式和流程
+	- 框架建立
+	- 需求梳理
+	- 测试编写
+	- 代码生成
 ## TODO_zen
 
 - 看下llamafactory源码
