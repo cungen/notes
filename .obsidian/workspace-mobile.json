@@ -11,12 +11,8 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cards/241213_一人之下语录.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -44,7 +40,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "tag:#Inbox",
+            "query": "tag:#home",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -82,8 +78,7 @@
           "state": {}
         }
       }
-    ],
-    "currentTab": 1
+    ]
   },
   "right": {
     "id": "51a17f0b402a1e8a",
@@ -95,7 +90,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Cards/241213_一人之下语录.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -112,7 +106,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Cards/241213_一人之下语录.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -123,9 +116,7 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "Cards/241213_一人之下语录.md"
-          }
+          "state": {}
         }
       },
       {
@@ -167,42 +158,42 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Cards/241213_一人之下语录.md",
-    "Cards/241212_想学的东西太多，而自己能力有限怎么办.md",
-    "Cards/241211_新年祝福.md",
-    "Cards/241210_钢琴谱 卡农.md",
-    "Attachments/4b7d5bcb$3f75$47c3$9bae$0900ce1cafa3_1514_917_1713537768822210_original_105539.jpg",
-    "Attachments/4b7d5bcb$3f75$47c3$9bae$0900ce1cafa3_1027_551_1713537768762122_original_105523.jpg",
-    "Cards/241118_llya推荐的30篇论文.md",
-    "Cards/241122_Self Attension.md",
-    "HOME.md",
-    "Excalidraw/LLM_Gateway_241122_112549.excalidraw.md",
-    "Excalidraw/LLM_Gateway Flow 241107_154703.excalidraw.md",
-    "Cards/241205_Holmes-FE部署.md",
-    "Cards/241204_AutoCode_Mumaniu.md",
-    "Cards/241203_预训练和微调.md",
-    "Cards/241203_python代码规范.md",
-    "Cards/241202_Claude的MCP协议介绍.md",
-    "Cards/241201_Mac软件推荐.md",
-    "Cards/241130_vi使用技巧.md",
-    "Cards/241129_aerospace Mac上的i3窗口管理器.md",
-    "Cards/241128_黄仁勋的CEO与领导心得.md",
-    "Cards/241127_理解Pass@k.md",
-    "Cards/241126_Agent思考模型和智能体架构.md",
-    "Attachments/Pasted image 20241126110340.png",
-    "Attachments/Pasted image 20241121142130.png",
-    "Attachments/Pasted image 20241121141830.png",
+    "Cards/250224_如何读论文.md",
+    "Cards/250222_docker build优化.md",
+    "Cards/250221_DeepSeek论文亮点.md",
+    "Cards/250205_知识蒸馏及迁移.md",
+    "Cards/250127_ZeroTier内网穿透虚拟局域网.md",
+    "Attachments/Pasted image 20250221175219.png",
     "/HOME.md",
-    "/Excalidraw/LLM_Gateway_241122_112549.excalidraw.md",
-    "/Excalidraw/LLM_Gateway Flow 241107_154703.excalidraw.md",
-    "/Cards/241205_Holmes-FE部署.md",
-    "/Cards/241204_AutoCode_Mumaniu.md",
-    "/Cards/241203_预训练和微调.md",
-    "/Attachments/Pasted image 20241126110340.png",
-    "/Attachments/Pasted image 20241121142130.png",
-    "/Attachments/Pasted image 20241121141830.png",
-    "Attachments/Pasted image 20241114094132.png",
-    "Attachments/Pasted image 20241114094001.png",
+    "/Cards/250224_如何读论文.md",
+    "/Cards/250222_docker build优化.md",
+    "/Cards/250221_DeepSeek论文亮点.md",
+    "/Cards/250205_知识蒸馏及迁移.md",
+    "/Cards/250127_ZeroTier内网穿透虚拟局域网.md",
+    "/Cards/250113_Cline源码分析.md",
+    "/Cards/241201_Mac软件推荐.md",
+    "/Attachments/Pasted image 20250221175219.png",
+    "Cards/250212_Bellman Equation.md",
+    "Cards/250211_RL笔记.md",
+    "HOME.md",
+    "Attachments/Pasted image 20250123101738.png",
+    "Attachments/Pasted image 20250123084108.png",
+    "/Cards/250122_DDD领域设计及应用架构.md",
+    "/Attachments/Pasted image 20250123101738.png",
+    "/Attachments/Pasted image 20250123084108.png",
+    "Cards/250122_DDD领域设计及应用架构.md",
+    "Cards/250125_dependency_injector依赖注入.md",
+    "Cards/250124_命令模式.md",
+    "Cards/250123_Lato微框架.md",
+    "Cards/250122_DDD领域设计.md",
+    "Cards/250121_llama factory运行流程及各训练方法详解.md",
+    "Cards/250120_o1_相关调研.md",
+    "/Cards/250125_dependency_injector依赖注入.md",
+    "/Cards/250124_命令模式.md",
+    "Attachments/Pasted image 20241212181624.png",
+    "Attachments/Pasted image 20241212181556.png",
+    "Attachments/Pasted image 20241211184901.png",
+    "Attachments/Pasted image 20241211184808.png",
     "Attachments",
     "Excalidraw",
     "Cards",
