@@ -6,7 +6,6 @@
   "defaultViewMode": "preview",
   "readableLineLength": true,
   "alwaysUpdateLinks": true,
-  "showRibbon": true,
   "attachmentFolderPath": "/Attachments",
   "showInlineTitle": true
 }

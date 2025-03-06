@@ -1,4 +1,6 @@
 #home 
+
+#Inbox 
 ## TODO_trivial
 
 - [Qwen2.5-Math-Evaluation](https://github.com/QwenLM/Qwen2.5-Math/tree/main/evaluation)
@@ -46,6 +48,9 @@
 - obsidian 插件 tree mind
 - https://link.zhihu.com/?target=http%3A//incompleteideas.net/book/the-book-2nd.html
 - 
+# 分类
+## AI
+
 
 ## 目标
 

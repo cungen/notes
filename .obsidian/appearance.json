@@ -7,5 +7,6 @@
   "baseFontSize": 20,
   "enabledCssSnippets": [
     "page-width"
-  ]
+  ],
+  "showRibbon": true
 }
