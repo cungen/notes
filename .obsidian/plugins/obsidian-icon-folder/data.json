@@ -32,15 +32,5 @@
     "iconIdentifier": ":",
     "lucideIconPackType": "native",
     "debugMode": false
-  },
-  "HOME.md": "LiHome",
-  "Cards/241107_Holmes部署.md": "🧭",
-  "Cards/241107_OpenCompass部署步骤.md": "🧭",
-  "Cards/241107_模型服务FastChat及Sglang升级步骤.md": "LiServer",
-  "Cards/template.md": "LiLayoutTemplate",
-  "Daily": "📅",
-  "Excalidraw": "🎨",
-  "copilot-conversations": "🤖",
-  "Cards": "🗂",
-  "Cards/20241107_OpenCompass执行问题及流程梳理.md": "🧭"
+  }
 }
