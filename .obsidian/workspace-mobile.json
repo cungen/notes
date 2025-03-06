@@ -11,7 +11,7 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {}
             }
           }
@@ -40,7 +40,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "tag:#home",
+            "query": "tag:#Area/AI",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -78,7 +78,8 @@
           "state": {}
         }
       }
-    ]
+    ],
+    "currentTab": 1
   },
   "right": {
     "id": "51a17f0b402a1e8a",
@@ -158,6 +159,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Cards/250304_时序差分方法.md",
     "Cards/250224_如何读论文.md",
     "Cards/250222_docker build优化.md",
     "Cards/250221_DeepSeek论文亮点.md",
@@ -189,7 +191,6 @@
     "Cards/250121_llama factory运行流程及各训练方法详解.md",
     "Cards/250120_o1_相关调研.md",
     "/Cards/250125_dependency_injector依赖注入.md",
-    "/Cards/250124_命令模式.md",
     "Attachments/Pasted image 20241212181624.png",
     "Attachments/Pasted image 20241212181556.png",
     "Attachments/Pasted image 20241211184901.png",
