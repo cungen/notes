@@ -1,5 +1,5 @@
 ---
-title: "Template for Cards"
+title: 
 draft: false
 tags:
   - Inbox

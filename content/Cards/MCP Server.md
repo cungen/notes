@@ -1,5 +1,5 @@
 ---
-title: "Template for Cards"
+title: 
 draft: false
 tags:
   - Inbox
@@ -14,4 +14,5 @@ tags:
 
 ##  References
 - https://modelcontextprotocol.io/introduction
-- https://glama.ai/blog/2024-11-25-model-context-protocol-quickstart[]()
+- https://glama.ai/blog/2024-11-25-model-context-protocol-quickstart
+- [[Claude的MCP协议介绍]]

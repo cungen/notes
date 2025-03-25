@@ -11,7 +11,7 @@ tags:
 4. 推送镜像，`docker push localhost:5000/holmes-fe:xxx`
 5. 重启Holmes服务：在`Holmes`目录下执行 `docker rm -f holmes-xxx && make deploy`
 
-> Holmes-FE更新步骤见 [[]]
+> Holmes-FE更新步骤见
 > - OpenCompass升级步骤见[[./OpenCompass部署步骤]]
 > - 模型相关服务升级步骤见[[./模型服务FastChat及Sglang升级步骤]]
 

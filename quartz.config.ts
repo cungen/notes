@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "cungen.github.io/notes",
     ignorePatterns: ["private", "templates", ".obsidian", "Excalidraw", "Attachments", "copilot-conversations"],
     defaultDateType: "created",
     generateSocialImages: true,
