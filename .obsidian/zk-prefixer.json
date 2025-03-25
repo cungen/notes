@@ -1,5 +1,5 @@
 {
   "folder": "content/Cards/",
-  "format": "",
+  "format": "YYYYMMDD_",
   "template": "content/Cards/template"
 }
