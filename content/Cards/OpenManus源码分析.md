@@ -222,6 +222,7 @@ classDiagram
 
 - 启发
 	- 简单设计，避免引入不必要的抽象层
+	- Agent和Tool的逻辑是可复用的
 	- Effective Agent影响：agent(with memory), flow, tools
 - 改进
 	- MCP Tools can give more flexibility
@@ -233,3 +234,4 @@ classDiagram
 - [[Agent设计]]
 - [[OpenManus源码分析]]
 - [[LangManus源码分析]]
+- [[UI-TARS-desktop源码分析]]

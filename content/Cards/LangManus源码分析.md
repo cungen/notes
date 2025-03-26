@@ -112,9 +112,11 @@ def build_graph():
 	- prompt还是挺重要的
 - 改进
 	- 任务并发
+	- 上下文控制（research内容分段选择、Rank）
 	- MCP Tools
 ## Talk is cheap
 ## References
 
 - [[Agent设计]]
 - [[OpenManus源码分析]]
+- [[UI-TARS-desktop源码分析]]

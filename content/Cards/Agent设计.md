@@ -71,6 +71,7 @@ tags:
 - [LangGraph_10.6k](https://langchain-ai.github.io/langgraph/)
 - [AuthGen_42.1k](https://github.com/microsoft/autogen)
 - [crewAI_29k](https://github.com/crewAIInc/crewAI.git)
+- [Camel_11.1k](https://github.com/camel-ai/camel)
 - [Semantic Kernel_23.7k](https://github.com/microsoft/semantic-kernel)
 - [letta-15.6k](https://github.com/letta-ai/letta)
 ## Manus启发
@@ -86,10 +87,11 @@ tags:
 
 ## More
 
-- 可以考虑让模型加入批判性思维方式：
+- 可以考虑让模型加入批判性思维方式，可用在Researcher或Supervisor上？
 ### 批判性思维
 
 - 可借鉴该论文：[CFT](https://arxiv.org/pdf/2501.17703)
+- 独立思考、逻辑推理和证据支持，而不是盲目接受权威或主流观点。
 - Prompt格式类似：
 ```txt
 Stage 1 (Solution Generation): 
@@ -116,9 +118,8 @@ Critique:
 
 Critique Conclusion: Correct/Incorrect
 ```
-独立思考、逻辑推理和证据支持，而不是盲目接受权威或主流观点。
-核心要素包括：
 
+核心要素包括：
 1. **分析能力**：能够分解复杂问题，识别其中的关键要素和逻辑关系。
 2. **评估能力**：能够评估信息的来源、证据的可靠性以及论点的合理性。
 3. **推理能力**：能够从已知信息中推导出合理的结论，避免逻辑谬误。
@@ -133,3 +134,4 @@ Critique Conclusion: Correct/Incorrect
 - [[LangManus源码分析]]
 - [[UI-TARS-desktop源码分析]]
 - [万字探讨Agent发展真方向：模型即产品](https://mp.weixin.qq.com/s/iTvrXLMxskcCWoFAGj-Umw)
+- [[owl源码分析]]
