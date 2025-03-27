@@ -6,6 +6,8 @@ tags:
 
 为大模型提供服务的一套标准，包含Server端和Client端，都提供了sdk，用户可以快速实现这些服务。Server端服务启动后，大模型应用可以使用Client建立与Server的连接，并访问Server上提供的服务。
 
+![MCP architecture|600](https://mmbiz.qpic.cn/sz_mmbiz_jpg/5Xv0xlEBe98Fz9K5GibZ7iaxssaamhRzNvPjFowpwfZzDttJ9D5BzSlqgr1IdnibpEUkXqm2QcXpYA2MDjou4Ml6w/640?wx_fmt=other&from=appmsg|600)
+
 目前能提供的服务主要包括
 - Tools：可以让大模型方便地使用可扩展的工具集
 - Prompts：有用的prompt合集

@@ -7,5 +7,17 @@
   "readableLineLength": true,
   "alwaysUpdateLinks": true,
   "attachmentFolderPath": "content/Attachments",
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "content/Cards",
+  "userIgnoreFilters": [
+    "quartz/",
+    "node_modules/",
+    "content/Attachments/",
+    "public/",
+    "templates/",
+    "package.json",
+    "package-lock.json",
+    "Dockerfile"
+  ]
 }

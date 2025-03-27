@@ -56,10 +56,11 @@ uvicorn.run("src.api.app:app", ...)
 app = FastAPI(...)
 
 @app.post("/api/chat/stream")
-async for event in run_agent_workflow(messages, ...):
-	...
-	yield { "event": event["event"], "data": json.dumps(event["data"], ensure_ascii=False) }
-	...
+def xxxx():
+	async for event in run_agent_workflow(messages, ...):
+		...
+		yield { "event": event["event"], "data": json.dumps(event["data"], ensure_ascii=False) }
+		...
 
 # src/service/workflow_service.py
 graph = build_graph()
@@ -112,7 +113,8 @@ def build_graph():
 	- prompt还是挺重要的
 - 改进
 	- 任务并发
-	- 上下文控制（research内容分段选择、Rank）
+	- 上下文控制（research内容分段选择、Rank，知识搜索、压缩）
+		- [memory-bank-mcp](https://www.npmjs.com/package/@allpepper/memory-bank-mcp) 该MCP server可以解决部分上下文的问题
 	- MCP Tools
 ## Talk is cheap
 ## References

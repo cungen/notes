@@ -177,6 +177,7 @@ export enum INTERNAL_ACTION_SPACES_ENUM {
 	- 代码组织的不是很好
 	- agent能力很依赖大模型
 	- 依赖视觉模型，使用工具较少
+	- 成本高
 
 ## References
 
