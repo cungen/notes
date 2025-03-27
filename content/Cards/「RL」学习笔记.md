@@ -1,7 +1,17 @@
 ---
 tags:
-- Area/AI/RL
+  - Area/AI/RL
+  - Inbox
 ---
+## 定义
+
+* **策略**：$\pi(a|s)=p(a_t=a|s_t=s)$ 
+* **折扣回报**：${G}(t)=r_{t+1}+\gamma r_{t+2}+\gamma^2 r_{t+3}+\dots+\gamma^{T-t-1}r_T$ ，后续奖励的叠加
+- **价值函数**：
+$$\begin {align}
+V_\pi^t(s)&=\mathbb{E_\pi}[G_t\;|\;s_t=s] \\
+Q_\pi^t(s,a)&=\mathbb{E_\pi}[G_t\;|\;s_t=s,a_t=a] 
+\end {align}$$
 
 ## 强化学习的统一视角
 
