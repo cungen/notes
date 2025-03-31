@@ -2,7 +2,6 @@
 title: 
 draft: false
 tags:
-  - Inbox
   - Area/AI/Agent
 ---
 ## 设计思路
