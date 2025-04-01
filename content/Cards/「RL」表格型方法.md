@@ -31,9 +31,13 @@ P与R未知，与环境交互，采集大量轨迹数据，从中获取信息来
 ### #蒙特卡洛 策略评估
 
 给定策略$\pi$，让智能体与环境交互，得到多个轨迹，每个轨迹都有对应回报(知道最终回报即可，无需知道即时回报)
-$$G_t=r_{t+1}+\gamma{r_{t+2}} + \gamma^2{r_{t+3}} + \dots$$
+$$
+G_t=r_{t+1}+\gamma{r_{t+2}} + \gamma^2{r_{t+3}} + \dots
+$$
 求出所有轨迹的平均回报，就可以知道某一个策略对应状态的价值，即
-$$V_\pi(s)=\mathbb{E_{\tau\sim\pi}}[G_t\;|\;s_t=s]$$
+$$
+V_\pi(s)=\mathbb{E_{\tau\sim\pi}}[G_t\;|\;s_t=s]
+$$
 
 - #免模型
 - 需要有终止的环境
@@ -42,7 +46,9 @@ $$V_\pi(s)=\mathbb{E_{\tau\sim\pi}}[G_t\;|\;s_t=s]$$
 #### 优化
 
 无需整个运动轨迹，用t步的回报取平均也可以用来估计状态价值
-$$V(s_t)\leftarrow V(s_t) + \alpha(G_{i,t} - V(s_t))$$
+$$
+V(s_t)\leftarrow V(s_t) + \alpha(G_{i,t} - V(s_t))
+$$
 - $\alpha=\frac1{N(s_t)}$ 表示学习率，也可以改变大小为其他值
 
 ### [[「RL」时序差分方法]] 
@@ -65,28 +71,52 @@ $$V(s_t)\leftarrow V(s_t) + \alpha(G_{i,t} - V(s_t))$$
 同策略：执行和优化的策略是同一个策略
 
 把原来更新V的过程改成了更新Q，用下一步的Q值更新当前的Q值
-$$Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha[r_{t+1}+\gamma Q(s_{t+1},a_{t+1})-Q(s_t,a_t)]$$
+
+$$
+Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha[r_{t+1}+\gamma Q(s_{t+1},a_{t+1})-Q(s_t,a_t)]
+$$
+
 该算法由于每次更新值函数时需要知道当前的状态（state）、当前的动作（action）、奖励（reward）、下一步的状态（state）、下一步的动作（action），即 $(s_t​,a_t​,r_{t+1}​,s_{t+1​},a_{t+1}​)$这几个值 ，因此得名 **Sarsa** 算法
 
 * 需要知道奖励r
-* 可以做n步sarsa，回报计算公式需要修改下$$Q_t^n​=r_{t+1}​+\lambda r_{t+2}​+…+\lambda^{n−1}r_{t+n}​+\lambda^nQ(s_{t+n}​,a_{t+n}​)$$
-* Sarsa($\lambda$) 的 Q 回报，如果给 $Q_t^n​$ 加上资格迹衰减参数（decay-rate parameter for eligibility traces）$\lambda$ 并进行求和，即可得到 Sarsa($\lambda$) 的 Q 回报$$Q_t^\lambda=(1−\lambda)\sum_{n=1}^∞​\lambda^{n−1}Q_t^n​$$更新策略为：$$Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha(Q_t^\lambda-Q(s_t,a_t))$$
+* 可以做n步sarsa，回报计算公式需要修改下
+
+$$
+Q_t^n​=r_{t+1}​+\lambda r_{t+2}​+…+\lambda^{n−1}r_{t+n}​+\lambda^nQ(s_{t+n}​,a_{t+n}​)
+$$
+
+Sarsa($\lambda$) 的 Q 回报，如果给 $Q_t^n​$ 加上资格迹衰减参数（decay-rate parameter for eligibility traces）$\lambda$ 并进行求和，即可得到 Sarsa($\lambda$) 的 Q 回报
+$$
+Q_t^\lambda=(1−\lambda)\sum_{n=1}^∞​\lambda^{n−1}Q_t^n
+$$
+更新策略为：
+$$
+Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha(Q_t^\lambda-Q(s_t,a_t))
+$$
+
 ### Q学习：异策略时序差分控制
 
 异策略：执行和优化的不是同一个策略，**行为策略**负责与环境交互产生轨迹，这些轨迹用于更新**目标策略**，异策略学习可以让我们重用旧的策略产生的轨迹，节省资源
 
 Q学习是一个异策略，包含行为策略和目标策略
-- 目标策略$\pi$在Q表格上使用贪心策略，取下一步能得到的所有状态，$$\pi(s_{t+1})=arg_{a'}\max Q(s_{t+1},a')$$
+- 目标策略$\pi$在Q表格上使用贪心策略，取下一步能得到的所有状态
+$$
+\pi(s_{t+1})=arg_{a'}\max Q(s_{t+1},a')
+$$
 - 行为策略$\mu$ 可以选择贪心策略，让行为不至于完全随机，它基于Q表格逐渐改进
 
 **Q学习目标**(回报) 
-
-$$\begin {align}
+$$
+\begin {align}\
 r_{t+1}+\gamma Q(s_{t+1},A')&=r_{t+1}+\gamma Q(s_{t+1},argmax Q(s_{t+1},a'))\\
 &=r_{t+1}+\gamma max_{a'}Q(s_{t+1}, a')
-\end {align}$$
+\end {align}
+$$
 增量形式为
-$$Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha[r_{t+1}+\gamma \max_aQ(s_{t+1},a)-Q(s_t,a_t)]$$
+$$
+Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha[r_{t+1}+\gamma \max_aQ(s_{t+1},a)-Q(s_t,a_t)]
+$$
+
 与Sarsa的区别
 - 同策略与异策略
 - 动作的选择，sarsa选择的是下一个一定会执行的动作(可能是贪心或随机选取的)，Q学习是直接从Q表格，取最大化的最佳策略的值

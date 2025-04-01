@@ -321,7 +321,7 @@ def is_equal(exp1, exp2):
 ```
 ## 结果
 
-使用DeepSeek-R1在llama_math和llama_math_hard这2个数据集上结果做对比，在使用上述方法后，准确率分别提升到了 **95.0%** 和 **91.11**
+使用DeepSeek-R1在llama_math和llama_math_hard这2个数据集上结果做对比，在使用上述方法后，准确率分别提升到了 **95.0%** 和 **91.11%**
 
 以下是一些示例
 ```json
