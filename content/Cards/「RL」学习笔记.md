@@ -5,9 +5,9 @@ tags:
 ---
 ## 定义
 
-* **策略**：$\pi(a|s)\doteq p(a_t=a|s_t=s)$ 
-* **折扣回报**：${G}(t)\doteq r_{t+1}+\gamma r_{t+2}+\gamma^2 r_{t+3}+\dots+\gamma^{T-t-1}r_T$ ，后续奖励的叠加
-- **价值函数**：
+* #策略 ：$\pi(a|s)\doteq p(a_t=a|s_t=s)$ 
+* #折扣回报 ：${G}(t)\doteq r_{t+1}+\gamma r_{t+2}+\gamma^2 r_{t+3}+\dots+\gamma^{T-t-1}r_T$ ，后续奖励的叠加
+- #价值函数 ：
 $$\begin {align}
 V_\pi^t(s)&\doteq\mathbb{E_\pi}[G_t\;|\;s_t=s] \\
 Q_\pi^t(s,a)&\doteq\mathbb{E_\pi}[G_t\;|\;s_t=s,a_t=a] 
@@ -18,43 +18,36 @@ Q_\pi^t(s,a)&\doteq\mathbb{E_\pi}[G_t\;|\;s_t=s,a_t=a]
 
 ## 强化学习智能体
 
-> 由**策略**、**价值函数**、**模型**组成
+> 由 #策略 、 #价值函数 、**模型**组成
 
 ### 智能体类型
 
-1. **基于价值**的智能体与**基于策略**的智能体
-2. **有模型**学习智能体和**免模型**学习智能体
+1. #基于价值的强化学习 智能体与 #基于策略的强化学习 智能体，把这两者结合起来就有了 **演员-评论员智能体**
+2. #有模型强化学习 智能体和 #免模型强化学习 智能体
 	- 如果马尔可夫决策过程< S(status), A(action), P, R(reward) >，这4个元素均已知，且状态和动作在有限步内是有限集，则可构建虚拟世界秋学习，称为**有模型强化学习**
 	- 大部分是免模型的，简单、直观、资料丰富
 
+## 强化学习的两种方法
 
-## 强化学习的统一视角
+### #基于价值的强化学习 
 
-![[Pasted image 20250304185607.png|500]]
-# 强化学习的两种方法
+Value based method $V(s_t) , V(s_t, a_t)$
 
-## Policy based method
+统一视角：
+![[Pasted image 20250304185607.png|400]]
 
-基于策略的 $\pi(s) \rightarrow a$
-## Value based method
+#### 计算方法
 
-基于价值的 $V(s_t) , V(s_t, a_t)$
-### state value function
+* [[「RL」表格型方法]]
+* #蒙特卡洛 （Monte Carlo，MC）采样的方法：根据价值函数定义，计算多条轨迹的回报后取平均
+* #动态规划方程 根据 [[「RL」贝尔曼方程(Bellman Equation)]]：里定义的状态转移方程，计算出未来所有状态的 #折扣回报 后，更新当前状态的价值函数
+### #基于策略的强化学习 
 
-$V_{\pi}(s) = \mathbb{E}_{\pi}[G_{t}|S_{t}=s]$
-$G_{t} = \sum_{k=0}^{\infty}\gamma^{k}R_{k+1}$
-
-### state action value fuction
-$Q_{\pi}(s, a) = \mathbb{E}_{\pi}\left[G_{t}|S_{t}=s,A_{t}=a\right]$
+Policy based method $\pi(s) \rightarrow a$
 
 ### 计算方式
 
 [[「RL」贝尔曼方程(Bellman Equation)]]
-
-### 2种方法
-
-- An Actor that controls how our agent behaves (Policy-Based method)
-- A Critic that measures how good the taken action is (Value-Based method)
 
 ## References
 
