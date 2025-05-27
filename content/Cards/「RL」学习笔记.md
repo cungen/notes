@@ -33,7 +33,7 @@ $$
 
 ### #基于价值的强化学习 
 
-Value based method $V(s_t) , V(s_t, a_t)$
+Value based method $V(s_t) , V(s_t, a_t)$，学习的不是策略，而是评论员（critic）。
 
 统一视角：
 ![[Pasted image 20250304185607.png|400]]
@@ -41,11 +41,16 @@ Value based method $V(s_t) , V(s_t, a_t)$
 #### 计算方法
 
 * [[「RL」表格型方法]]
+* [[「RL」深度Q网络DQN]]
 * #蒙特卡洛 （Monte Carlo，MC）采样的方法：根据价值函数定义，计算多条轨迹的回报后取平均
 * #动态规划方程 根据 [[「RL」贝尔曼方程(Bellman Equation)]]：里定义的状态转移方程，计算出未来所有状态的 #折扣回报 后，更新当前状态的价值函数
+
 ### #基于策略的强化学习 
 
 Policy based method $\pi(s) \rightarrow a$
+
+- [[「RL」策略梯度]]
+- [[「RL」PPO算法]]
 
 ### 计算方式
 
