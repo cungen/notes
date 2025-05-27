@@ -12,15 +12,14 @@
   "newFileFolderPath": "content/Cards",
   "userIgnoreFilters": [
     "quartz/",
-    "node_modules/",
     "content/Attachments/",
     "public/",
     "templates/",
     "package.json",
     "package-lock.json",
-    "Dockerfile"
+    "Dockerfile",
+    "node_modules/"
   ],
-  "showRibbon": true,
   "mobileToolbarCommands": [
     "editor:insert-wikilink",
     "editor:insert-embed",

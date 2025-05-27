@@ -40,6 +40,7 @@ tags:
 ## 效率工具
 
 - AeroSpace 窗口管理
+- yabai 窗口管理，对sketchybar兼容好
 - raycast 搜索
 - vimac 快捷键
 
@@ -49,7 +50,8 @@ tags:
 
 ## 美化
 
-- iBar 状态栏美化
+- [Sketchybar](https://felixkratz.github.io/SketchyBar/) 状态栏美化
+	- [sketchybar-config](https://github.com/TheGoldenPatrik1/sketchybar-config)
 - Plash 桌面显示web页面
 
 ## 清理工具
