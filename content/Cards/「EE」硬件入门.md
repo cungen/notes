@@ -2,6 +2,7 @@
 title: 
 draft: false
 tags:
+  - Area/Hardware
   - Inbox
 ---
 ## B站up推荐
@@ -41,3 +42,9 @@ tags:
 	- orcad，原理图的行业标准
 	- allegro，PCB布线爽，仿真牛，全球市场最多
 - **VoltSim** 手机端电路仿真软件
+
+## References
+
+- [[「EE」电路设计]]
+- [[「EE」电路板设计]]
+- [[「EE」叠层原则]]

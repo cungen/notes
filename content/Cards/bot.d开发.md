@@ -3,7 +3,7 @@ title:
 draft: false
 tags:
   - Inbox
-  - Area/硬件
+  - Area/Hardware
 ---
 以下是为您定制的开发计划和技术建议，包含电池方案、硬件选型和学习路线：
 
