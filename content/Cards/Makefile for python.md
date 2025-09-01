@@ -5,9 +5,9 @@ tags:
   - Area/RD/系统设计
   - Area/RD
 ---
-## python中常用的make命令
+### docker
 
-```cmake
+```makefile
 .PHONY: help
 help: ## Show this help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -28,49 +28,57 @@ build_image:	## build the docker image for deploy
 .PHONY: deploy
 deploy: ## Deploy the application
 	IMAGE_TAG=$(LATEST_IMAGE) docker compose -f docker-compose-prod.yaml up -d
-
-
-## **DB Migration**
-### Alembic for SQLAlchemy ORM
-.PHONY: db_downgrade
-db_downgrade:  ## Downgrade alembic database/schema by one step
-	uv run alembic downgrade -1
-
-.PHONY: db_create_migration
-db_create_migration:  ## Create new alembic database migration aka database revision. m=xx is needed
-	uv run alembic revision --autogenerate -m "$(m)"
-
-.PHONY: db_apply_migrations
-db_apply_migrations: ## apply alembic migrations to database/schema
-	uv run alembic upgrade head
-
-
-DEV_ENV_VARS := PYTHONPATH=$(shell pwd)/src TARGET=dev
-### Aerich for TORTOISE_ORM
-.PHONY: aerich_db_init
-aerich_db_init: ## Initialize aerich
-	$(DEV_ENV_VARS) uv run aerich init -t dm_service.common.db.TORTOISE_ORM
-	$(DEV_ENV_VARS) uv run aerich init-db
-
-.PHONY: aerich_db_migrate
-aerich_db_migrate: ## Migrate aerich
-	$(DEV_ENV_VARS) uv run aerich migrate
-
-.PHONY: aerich_db_upgrade_dev
-aerich_db_upgrade_dev: ## Upgrade aerich for dev
-	$(DEV_ENV_VARS) ENV_FILE_PATH=.env.dev uv run aerich upgrade
-
-.PHONY: aerich_db_upgrade
-aerich_db_upgrade: ## Upgrade aerich
-	$(DEV_ENV_VARS) uv run aerich upgrade
-
-.PHONY: aerich_db_heads
-aerich_db_heads: ## Show aerich heads
-	$(DEV_ENV_VARS) uv run aerich heads
-
-.PHONY: aerich_db_downgrade
-aerich_db_downgrade: ## Downgrade aerich
-	$(DEV_ENV_VARS) uv run aerich downgrade
-
 ```
 
+### db script
+
+```makefile
+HOSTNAME := $(shell hostname)
+.PHONY: celery-worker-beat
+celery-worker-beat: ## 启动 Celery worker 和 beat 调度器
+	$(ENV_VARS) cd src && uv run celery -A one_task.modules.celery.celery.celery_app worker -Q $(HOSTNAME)  --loglevel=info --beat
+
+.PHONY: celery-flower
+celery-flower: ## 启动 Celery flower
+	$(ENV_VARS) cd src && uv run celery -A one_task.modules.celery.celery.celery_app flower --port=5566
+
+.PHONY: aerich_init_project
+aerich_init_project: ## Initialize aerich
+	$(ENV_VARS) uv run aerich init -t one_task.config.tortoise_orm.TORTOISE_ORM
+
+.PHONY: aerich_init_db
+aerich_init_db: ## Initialize aerich database
+	$(ENV_VARS) uv run aerich init-db
+
+.PHONY: aerich_migrate
+aerich_migrate: ## Migrate aerich
+	$(ENV_VARS) uv run aerich migrate
+
+.PHONY: aerich_upgrade
+aerich_upgrade: ## Upgrade aerich
+	$(ENV_VARS) uv run aerich upgrade
+
+.PHONY: aerich_heads
+aerich_heads: ## Show aerich heads
+	$(ENV_VARS) uv run aerich heads
+
+.PHONY: aerich_downgrade
+aerich_downgrade: ## Downgrade aerich
+	$(ENV_VARS) uv run aerich downgrade
+
+.PHONY: alembic_downgrade
+alembic_downgrade:  ## Downgrade alembic database/schema by one step
+	$(ENV_VARS) uv run alembic downgrade -1
+
+.PHONY: alembic_revision
+alembic_revision:  ## Create new alembic database migration aka database revision. m=xx is needed
+	$(ENV_VARS) uv run alembic revision --autogenerate -m "$(shell date +%Y%m%d_%H%M%S)"
+
+.PHONY: alembic_upgrade
+alembic_upgrade: ## apply alembic migrations to database/schema
+	$(ENV_VARS) uv run alembic upgrade head
+
+.PHONY: alembic_init
+alembic_init: ## Initialize alembic
+	$(ENV_VARS) uv run alembic init alembic
+```
