@@ -1,7 +1,8 @@
 ---
 tags:
-- Area/RD/架构
-- Area/RD/系统设计
+  - Area/RD/架构
+  - Area/RD/系统设计
+date: 2025-03-06
 ---
 
 [dependency-injector](https://python-dependency-injector.ets-labs.org/)是一个Python下的依赖注入框架，使用该模块会带来以下好处

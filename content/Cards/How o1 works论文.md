@@ -1,9 +1,10 @@
 ---
 tasg:
-- Inbox
-- Area/AI/论文
-- Resource/LLM/论文
-- Resource/LLM/o1
+  - Inbox
+  - Area/AI/论文
+  - Resource/LLM/论文
+  - Resource/LLM/o1
+date: 2025-03-06
 ---
 
 ## O1路线图

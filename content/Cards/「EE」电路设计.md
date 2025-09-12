@@ -1,9 +1,10 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Inbox
   - Area/Hardware
+date: 2025-09-08
 ---
 ## 布局指南
 

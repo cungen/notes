@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Area/AI/RL
+date: 2025-05-28
 ---
 近端策略优化（proximal policy optimization，PPO） ，PPO是策略梯度的变形，它是现在 OpenAI 默认的强化学习算法。
 $$

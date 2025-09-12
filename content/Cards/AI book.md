@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/AI/Books
+  - Area/AI/Books
+date: 2025-03-06
 ---
 
 - Building a large language model from scratch

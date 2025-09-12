@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/FE/React
+  - Area/FE/React
+date: 2025-03-10
 ---
 - 框架：Next.js
 	- 做的好的项目可以参考 [dify](https://github.com/langgenius/dify)

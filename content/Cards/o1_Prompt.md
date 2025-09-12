@@ -1,7 +1,8 @@
 ---
 tags:
-- Resource/LLM/o1
-- Resource/LLM/Prompt
+  - Resource/LLM/o1
+  - Resource/LLM/Prompt
+date: 2025-03-06
 ---
 
 ## Make the claude think like o1

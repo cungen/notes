@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/AI/Infer
+  - Area/AI/Infer
+date: 2025-03-06
 ---
 
 ## 简介

@@ -1,9 +1,10 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Inbox
   - Resource/LLM/Prompt
+date: 2025-06-13
 ---
 ## For cline
 

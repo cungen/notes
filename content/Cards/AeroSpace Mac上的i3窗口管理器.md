@@ -1,7 +1,8 @@
 ---
 tags:
-- share
-- Resource/工具/Mac
+  - share
+  - Resource/工具/Mac
+date: 2025-03-06
 ---
 
 > [!INFO] 配置说明

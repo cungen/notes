@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Inbox
+date: 2025-06-13
 ---
 > 文章：[# Claude 团队说：我们 95% 的代码是 AI 写的，美团听了沉默了，程序员也沉默了](https://mp.weixin.qq.com/s/_mkz9vrFj6DDprBrIsQ3Qw)
 

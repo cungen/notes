@@ -1,6 +1,7 @@
 ---
 tags:
-- Resource/Nas
+  - Resource/Nas
+date: 2025-03-06
 ---
 
 机箱 575

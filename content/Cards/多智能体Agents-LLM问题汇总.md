@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Inbox
+date: 2025-04-03
 ---
 - [# 伯克利大学35页综述：多智能体LLM系统为何会失败？](https://mp.weixin.qq.com/s/V2kNZxSClDLr8VYRCmwv3g)
 

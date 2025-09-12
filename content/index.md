@@ -1,6 +1,6 @@
 ---
 tags:
-- home
+  - home
 ---
 所有标签：[Tags](https://cungen.github.io/notes/tags)
 ## 最新文章
@@ -17,3 +17,7 @@ tags:
 ## 更新中
 - #Inbox 
 - [[「EE」硬件入门]]
+
+## Bases
+
+![[AllCards.base]]

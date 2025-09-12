@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/AI/论文
+  - Area/AI/论文
+date: 2025-03-06
 ---
 
 # Ilya-30u30

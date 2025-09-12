@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/Dev/K8s
+  - Area/Dev/K8s
+date: 2025-03-06
 ---
 
 ## 安装

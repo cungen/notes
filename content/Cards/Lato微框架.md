@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/RD/架构
+  - Area/RD/架构
+date: 2025-03-06
 ---
 
 [Lato](https://lato.readthedocs.io/en/latest/index.html)是一个python的微框架库，可以帮助你构建一个模块化的项目，设计思想模块化、依赖注入、高内聚、低耦合

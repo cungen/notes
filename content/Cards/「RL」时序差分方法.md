@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/AI/RL
+  - Area/AI/RL
+date: 2025-05-28
 ---
 
 #时序差分 方法（Temporal Difference Learning, TD Learning）是一种结合了蒙特卡罗方法和动态规划思想的强化学习算法。它通过逐步更新值函数来学习策略，无需等待一个完整的回合结束，适用于在线学习和非稳态环境。

@@ -1,7 +1,8 @@
 ---
 tags:
-- Area/RD/系统设计
-- Area/RD/架构
+  - Area/RD/系统设计
+  - Area/RD/架构
+date: 2025-03-06
 ---
 
 DDD(Domain Driven Design) 核心思想是通过领域驱动设计方法定义领域模型，从而确定业务和应用边界，保证业务模型与代码模型的一致性。

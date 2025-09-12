@@ -1,9 +1,10 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Inbox
 create_at:
+date: 2025-07-09
 ---
 ### 命令行工具
 

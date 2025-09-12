@@ -1,6 +1,7 @@
 ---
 tgas:
-- Inbox
+  - Inbox
+date: 2025-03-06
 ---
 
 ## Git Commit

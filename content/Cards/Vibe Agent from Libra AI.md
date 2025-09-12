@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Area/AI/Agent
+date: 2025-04-03
 ---
 [Vibe Agent: Token成本直降90%，会对话就能创造专属本地Agent](https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2650962958&idx=1&sn=acf6f04aaa059636e77b1f99876043bd&chksm=85fa8debaeccef93c0a5cee5cd20090c30819f4e8eac1f9db133501a24e69fff63d8b30a964b&version=4.1.30.99529&platform=mac&from=industrynews#rd)
 

@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Area/RD/架构
+date: 2025-06-09
 ---
 
 ## [Supabase](https://github.com/supabase/supabase)的技术栈

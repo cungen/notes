@@ -1,6 +1,7 @@
 ---
 tags:
-- Resource/LLM/API
+  - Resource/LLM/API
+date: 2025-03-06
 ---
 
 - https://github.com/songquanpeng/one-api

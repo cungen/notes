@@ -1,7 +1,8 @@
 ---
 tags:
-- Area/FE
-- Area/AI/Agent
+  - Area/FE
+  - Area/AI/Agent
+date: 2025-03-06
 ---
 
 ## 目标

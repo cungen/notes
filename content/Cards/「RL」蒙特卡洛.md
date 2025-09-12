@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Area/AI/RL
+date: 2025-05-28
 ---
 
 ## #蒙特卡洛 策略评估

@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Area/AI/RL
+date: 2025-05-28
 ---
 策略一般记$\pi$。假设我们使用深度学习来做强化学习，策略就是一个网络。
 

@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/AI/Agent
+  - Area/AI/Agent
+date: 2025-03-06
 ---
 ## 思考机制
 

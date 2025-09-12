@@ -1,8 +1,9 @@
 ---
-title: 
+title:
 draft: false
 tags:
   - Area/Hardware
+date: 2025-09-08
 ---
 ## 多层板依据
 

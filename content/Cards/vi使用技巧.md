@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/RD/Editor
+  - Area/RD/Editor
+date: 2025-03-06
 ---
 
 ## command mode

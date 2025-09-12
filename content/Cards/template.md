@@ -3,5 +3,5 @@ title:
 draft: false
 tags:
   - Inbox
-create_at:
+date: {{date:YYYY-MM-DD}}
 ---

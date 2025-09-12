@@ -1,6 +1,7 @@
 ---
 tags:
-- Area/RD/OpenCompass
+  - Area/RD/OpenCompass
+date: 2025-03-06
 ---
 
 ## OpenCompass执行问题
