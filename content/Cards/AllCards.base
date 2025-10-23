@@ -5,7 +5,15 @@ views:
       - file.name
       - date
       - tags
-    sort: []
+    sort:
+      - property: date
+        direction: DESC
     limit: 30
     columnSize:
       note.date: 186
+  - type: cards
+    name: View
+    order:
+      - file.name
+      - file.ctime
+      - tags
