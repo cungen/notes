@@ -100,5 +100,14 @@
       ],
       "key": "O"
     }
+  ],
+  "obsidian-markmind:Toggle to markdown or mindmap": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Mod"
+      ],
+      "key": "M"
+    }
   ]
 }

@@ -37,6 +37,7 @@ date: 2025-03-06
 - apifox
 - fork
 - mac虚拟机VirualBuddy
+- wailbrew: GUI for brew
 
 ## 效率工具
 

@@ -16,5 +16,6 @@
   "useCustomShortcut": false,
   "highlightFormat": "\nPage:{{page}}\n<span style=\"color:rgb({{color}})\">■</span>:{{highlightText}}\nComment:{{comment}}\n[📌]({{link}})\n^{{id}}\n",
   "setup": 1737857574237,
-  "supportPDF": false
+  "supportPDF": false,
+  "uid": "00p01101001300s01200s00s01100t01100s00o"
 }
