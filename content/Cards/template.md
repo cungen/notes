@@ -3,5 +3,5 @@ title:
 draft: false
 tags:
   - Inbox
-date: {{date:YYYY-MM-DD}}
+date: 2026-04-20
 ---

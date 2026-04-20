@@ -22,7 +22,7 @@ $$
 p_\theta(\tau)&=p(s_1)p_\theta(a_1|s_1)p(s_2|s1,a_1)p_\theta(a_2|s_2)p(s_3|s_2,a_2)\cdots \\
 &=p(s_1)\prod_{t=1}^T{p_\theta(a_t|s_t)p(s_{t+1}|s_t,a_t)}
 \end {align}
-​$$
+$$
 
 **期望奖励**，也就是我们要最大化的目标：
 $$

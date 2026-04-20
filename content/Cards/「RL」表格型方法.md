@@ -58,18 +58,18 @@ $$
 Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha[r_{t+1}+\gamma Q(s_{t+1},a_{t+1})-Q(s_t,a_t)]
 $$
 
-该算法由于每次更新值函数时需要知道当前的状态（state）、当前的动作（action）、奖励（reward）、下一步的状态（state）、下一步的动作（action），即 $(s_t​,a_t​,r_{t+1}​,s_{t+1​},a_{t+1}​)$这几个值 ，因此得名 **Sarsa** 算法
+该算法由于每次更新值函数时需要知道当前的状态（state）、当前的动作（action）、奖励（reward）、下一步的状态（state）、下一步的动作（action），即 $(s_t,a_t,r_{t+1},s_{t+1},a_{t+1})$ 这几个值，因此得名 **Sarsa** 算法
 
 * 需要知道奖励r
 * 可以做n步sarsa，回报计算公式需要修改下
 
 $$
-Q_t^n​=r_{t+1}​+\lambda r_{t+2}​+…+\lambda^{n−1}r_{t+n}​+\lambda^nQ(s_{t+n}​,a_{t+n}​)
+Q_t^n=r_{t+1}+\lambda r_{t+2}+…+\lambda^{n−1}r_{t+n}+\lambda^nQ(s_{t+n},a_{t+n})
 $$
 
-Sarsa($\lambda$) 的 Q 回报，如果给 $Q_t^n​$ 加上资格迹衰减参数（decay-rate parameter for eligibility traces）$\lambda$ 并进行求和，即可得到 Sarsa($\lambda$) 的 Q 回报
+Sarsa($\lambda$) 的 Q 回报，如果给 $Q_t^n$ 加上资格迹衰减参数（decay-rate parameter for eligibility traces）$\lambda$ 并进行求和，即可得到 Sarsa($\lambda$) 的 Q 回报
 $$
-Q_t^\lambda=(1−\lambda)\sum_{n=1}^∞​\lambda^{n−1}Q_t^n
+Q_t^\lambda=(1−\lambda)\sum_{n=1}^∞\lambda^{n−1}Q_t^n
 $$
 更新策略为：
 $$
