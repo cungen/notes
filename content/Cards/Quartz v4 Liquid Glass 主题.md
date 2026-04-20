@@ -1,17 +1,29 @@
 ---
-title: Quartz v4 Liquid Glass 主题
+title: Quartz Liquid Glass 主题（v5）
 draft: false
 tags:
   - Quartz
+  - Quartz-v5
   - Obsidian
   - UI-Design
   - Glassmorphism
 date: 2026-04-20
 ---
 
-# Quartz v4 Liquid Glass 主题指南
+# Quartz Liquid Glass 主题指南
 
-目标：把这篇笔记改成「如何在 Quartz 里做 Liquid Glass 风格主题」的可执行指南。
+目标：把这篇笔记改成「如何在 Quartz 里做 Liquid Glass 风格主题」的可执行指南。本仓库已升级到 **Quartz v5**。
+
+## Quartz v5 与 sea-glass 安装（当前仓库）
+
+- **官方升级**：Quartz v5 使用 `quartz.config.yaml` + `quartz.lock.json`，插件在 `.quartz/plugins/`（`npm ci` 会跑 `prebuild` → `install-plugins` 从 lockfile 安装）。Node 要求 **≥ 22**（见 `package.json` engines）。
+- **sea-glass（quartz-themes）**：README 写明支持 Quartz v5，安装方式三选一：
+  1. **CI（推荐）**：在 `deploy.yml` 里设 `THEME_NAME: sea-glass`，在 `npm ci` 之后、`npx quartz build` 之前执行  
+     `curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME`  
+     仓库：<https://github.com/saberzero1/quartz-themes>
+  2. **本地脚本**：下载 `action.sh` 后执行 `./action.sh sea-glass`（会改 `quartz/styles/custom.scss` 等）。
+  3. **手动**：把 `themes/sea-glass/_index.scss` 存为 `quartz/styles/themes/_index.scss`，并在 `quartz/styles/custom.scss` 的 `@use "./base.scss";` 下一行加 `@use "./themes";`。
+- **构建注意**：`og-image` 插件生成社交图时会 **拉取字体**；无网络环境会报 `CustomOgImages: fetch failed`。本地需联网构建，或把 `quartz.config.yaml` 里 `github:quartz-community/og-image` 设为 `enabled: false`。
 
 ## 1) Existing Beauti Themes（现有好看主题）
 
@@ -36,8 +48,8 @@ date: 2026-04-20
 
 结合本项目，推荐用这套结构：
 
-1. **配置层：`quartz.config.ts`**
-   - 管全局主题 Token：字体、亮暗模式颜色、语义色（secondary/tertiary/highlight）。
+1. **配置层：`quartz.config.yaml`（Quartz v5）**
+   - 管站点级配置与插件列表；`configuration.theme` 里可配字体与亮暗色板。
    - 适合定义“品牌层”的视觉系统。
 
 2. **样式层：`quartz/styles/custom.scss`**

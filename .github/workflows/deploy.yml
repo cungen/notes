@@ -14,6 +14,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  THEME_NAME: sea-glass
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -24,6 +27,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Fetch Quartz Theme (quartz-themes)
+        run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
       - name: Install Dependencies
         run: npm ci
       - name: Build Quartz
