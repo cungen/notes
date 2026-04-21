@@ -6,6 +6,7 @@ prof
 tsconfig.tsbuildinfo
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+.quartz
 .quartz-cache
 private/
 .replit
