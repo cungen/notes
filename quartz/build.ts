@@ -50,6 +50,13 @@ type BuildData = {
 }
 
 async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
+  if (typeof argv.baseUrl === "string" && argv.baseUrl.trim().length > 0) {
+    cfg.configuration.baseUrl = argv.baseUrl
+      .trim()
+      .replace(/^https?:\/\//, "")
+      .replace(/\/+$/, "")
+  }
+
   const ctx: BuildCtx = {
     buildId: randomIdNonSecure(),
     argv,

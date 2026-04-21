@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: "🏡 我的存储小站"
+  pageTitle: "🕹️通往核心地带"
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true

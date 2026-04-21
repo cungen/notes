@@ -13,6 +13,8 @@ export interface Argv {
   wsPort: number
   remoteDevHost?: string
   concurrency?: number
+  /** When set, replaces cfg.configuration.baseUrl for this build (e.g. `localhost` for root-local preview). */
+  baseUrl?: string
 }
 
 export type BuildTimeTrieData = QuartzPluginData & {

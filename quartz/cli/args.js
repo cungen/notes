@@ -76,6 +76,12 @@ export const SyncArgv = {
 
 export const BuildArgv = {
   ...CommonArgv,
+  baseUrl: {
+    string: true,
+    alias: ["b"],
+    describe:
+      "Override configuration.baseUrl for this build only (e.g. `localhost` to preview at site root instead of a GitHub Pages subpath)",
+  },
   output: {
     string: true,
     alias: ["o"],

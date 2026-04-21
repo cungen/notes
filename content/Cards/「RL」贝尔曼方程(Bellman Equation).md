@@ -6,13 +6,13 @@ date: 2025-04-01
 
 > #贝尔曼方程 定义了当前状态和未来状态之间的关系，也被叫作“ #动态规划方程”
 $$
-V(s)=R(s)+γ\sum_{s′\in S}p(s′∣s)V(s′)
+V(s)=R(s)+\gamma\sum_{s^\prime\in S}p(s^\prime\mid s)V(s^\prime)
 $$
 
-- $s′$ 可以看成未来的所有状态
-- $p(s′∣s)$ 是指从当前状态转移到未来状态的概率，所以该方程是 #有模型强化学习 。
-- $V(s′)$ 代表的是未来某一个状态的价值。
-- $\gamma\sum_{s′\in S}p(s′∣s)V(s′)$ 可以看成未来奖励的折扣总和
+- $s^\prime$ 可以看成未来的所有状态
+- $p(s^\prime\mid s)$ 是指从当前状态转移到未来状态的概率，所以该方程是 #有模型强化学习 。
+- $V(s^\prime)$ 代表的是未来某一个状态的价值。
+- $\gamma\sum_{s^\prime\in S}p(s^\prime\mid s)V(s^\prime)$ 可以看成未来奖励的折扣总和
 ## 关系
 
 #价值函数  state value based function

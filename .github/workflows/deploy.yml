@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  THEME_NAME: sea-glass
+  THEME_NAME: material-gruvbox
 
 jobs:
   build:
