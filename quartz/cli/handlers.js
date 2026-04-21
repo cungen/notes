@@ -27,6 +27,7 @@ import {
   handlePluginRestore,
   handlePluginCheck,
   handlePluginResolve,
+  regeneratePluginIndex,
 } from "./plugin-git-handlers.js"
 import {
   configExists,
@@ -325,6 +326,7 @@ export async function handleBuild(argv) {
   }
 
   console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)} \n`)
+  await regeneratePluginIndex({ verbose: !!argv.verbose })
   const ctx = await esbuild.context({
     entryPoints: [fp],
     outfile: cacheFile,

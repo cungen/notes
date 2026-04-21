@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import os from "os"
-import { exec as execCb } from "child_process"
+import { exec as execCb, execFileSync } from "child_process"
 import { styleText, promisify } from "util"
 import {
   readPluginsJson,
@@ -20,8 +20,6 @@ import {
   resolveLockfileName,
   getNameOverrides,
 } from "./plugin-data.js"
-
-const INTERNAL_EXPORTS = new Set(["manifest", "default"])
 
 const execAsync = promisify(execCb)
 
@@ -188,67 +186,40 @@ function findPluginByPackageName(packageName) {
   return null
 }
 
-function parseExportsFromDts(content) {
-  const exports = []
-  const exportMatches = content.matchAll(/export\s*{\s*([^}]+)\s*}(?:\s*from\s*['"]([^'"]+)['"])?/g)
-  for (const match of exportMatches) {
-    const fromModule = match[2]
-    if (fromModule?.startsWith("@")) continue
-
-    const names = match[1]
-      .split(",")
-      .map((n) => n.trim())
-      .filter(Boolean)
-    for (const name of names) {
-      const cleanName = name.split(" as ").pop()?.trim() || name.trim()
-      if (cleanName && !cleanName.startsWith("_") && !INTERNAL_EXPORTS.has(cleanName)) {
-        const finalName = cleanName.replace(/^type\s+/, "")
-        if (name.includes("type ")) {
-          exports.push(`type ${finalName}`)
-        } else {
-          exports.push(finalName)
-        }
-      }
-    }
-  }
-  return exports
-}
-
-async function regeneratePluginIndex() {
+/**
+ * Regenerate `.quartz/plugins/index.ts` using the same logic as `gitLoader.regeneratePluginIndex`
+ * (v5 format: componentRegistry + `plugins` map). The legacy generator here used v4-style
+ * `export { X } from "./plugin"` lines, which breaks when stub dirs exist without `dist/`.
+ */
+export async function regeneratePluginIndex({ verbose = false } = {}) {
   if (!fs.existsSync(PLUGINS_DIR)) return
 
-  const plugins = fs.readdirSync(PLUGINS_DIR).filter((name) => {
-    const pluginPath = path.join(PLUGINS_DIR, name)
-    return fs.statSync(pluginPath).isDirectory()
-  })
+  const root = process.cwd()
+  const tsxCli = path.join(root, "node_modules", "tsx", "dist", "cli.mjs")
+  const script = path.join(root, "quartz", "scripts", "regenerate-plugin-index.ts")
 
-  const exports = []
-
-  for (const pluginName of plugins) {
-    const pluginDir = path.join(PLUGINS_DIR, pluginName)
-    const distIndex = path.join(pluginDir, "dist", "index.d.ts")
-
-    if (!fs.existsSync(distIndex)) continue
-
-    const dtsContent = fs.readFileSync(distIndex, "utf-8")
-    const exportedNames = parseExportsFromDts(dtsContent)
-
-    if (exportedNames.length > 0) {
-      const namedExports = exportedNames.filter((e) => !e.startsWith("type "))
-      const typeExports = exportedNames.filter((e) => e.startsWith("type ")).map((e) => e.slice(5))
-
-      if (namedExports.length > 0) {
-        exports.push(`export { ${namedExports.join(", ")} } from "./${pluginName}"`)
-      }
-      if (typeExports.length > 0) {
-        exports.push(`export type { ${typeExports.join(", ")} } from "./${pluginName}"`)
-      }
-    }
+  if (!fs.existsSync(tsxCli) || !fs.existsSync(script)) {
+    console.warn(
+      styleText("yellow", "⚠"),
+      "Could not regenerate plugin index (missing tsx or quartz/scripts/regenerate-plugin-index.ts).",
+    )
+    return
   }
 
-  const indexContent = exports.join("\n") + "\n"
-  const indexPath = path.join(PLUGINS_DIR, "index.ts")
-  fs.writeFileSync(indexPath, indexContent)
+  const args = [tsxCli, script]
+  if (verbose) args.push("--verbose")
+
+  try {
+    execFileSync(process.execPath, args, {
+      cwd: root,
+      stdio: verbose ? "inherit" : "pipe",
+    })
+  } catch (err) {
+    console.warn(
+      styleText("yellow", "⚠"),
+      `Failed to regenerate .quartz/plugins/index.ts: ${err instanceof Error ? err.message : String(err)}`,
+    )
+  }
 }
 
 export async function handlePluginInstallUnified({

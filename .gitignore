@@ -16,3 +16,4 @@ docs
 .obsidian/plugins/**/data.json
 /.smtcmp_json_db
 /.smtcmp_vector_db.tar.gz
+/.omc
