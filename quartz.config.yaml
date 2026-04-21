@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: "🕹️通往核心地带"
+  pageTitle: 🕹️通往核心地带
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -251,6 +251,17 @@ plugins:
       position: afterBody
       priority: 50
       display: all
+  - source: github:quartz-community/tui
+    enabled: true
+    options: {}
+    order: 50
+  - source:
+      name: quartz-themes
+      repo: github:saberzero1/quartz-themes
+      subdir: plugin
+    enabled: true
+    options:
+      theme: material-gruvbox
 layout:
   groups:
     toolbar:
