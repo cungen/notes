@@ -87,6 +87,11 @@ function sourceKey(source: PluginSource): string {
   return JSON.stringify(source)
 }
 
+function isFastDevMode(): boolean {
+  const value = process.env.QUARTZ_FAST_DEV
+  return value === "1" || value === "true"
+}
+
 interface DependencyValidationResult {
   errors: string[]
   warnings: string[]
@@ -251,7 +256,17 @@ export async function loadQuartzConfig(
     ...configOverrides,
   }
 
-  const enabledEntries = json.plugins.filter((e) => e.enabled)
+  let enabledEntries = json.plugins.filter((e) => e.enabled)
+  if (isFastDevMode()) {
+    const disabledInFastDev = new Set(["og-image"])
+    enabledEntries = enabledEntries.filter((entry) => {
+      const name = extractPluginName(entry.source)
+      return !disabledInFastDev.has(name)
+    })
+    console.log(
+      styleText("yellow", "⚡ Fast dev mode: disabled heavy plugins (og-image) for faster startup"),
+    )
+  }
   const manifests = new Map<string, PluginManifest>()
 
   // Ensure all plugins are installed and collect native deps

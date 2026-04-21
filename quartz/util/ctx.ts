@@ -7,6 +7,7 @@ export interface Argv {
   directory: string
   verbose: boolean
   output: string
+  fastStart?: boolean
   serve: boolean
   watch: boolean
   port: number

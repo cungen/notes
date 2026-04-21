@@ -23,13 +23,34 @@ npm install
 
 ## Local development
 
-Preview the site from the **`content/`** vault with live reload:
+Preview the site from the **`content/`** vault with live reload.
+
+Fast daily workflow (recommended):
+
+```bash
+npm run dev
+```
+
+- Uses `QUARTZ_FAST_DEV=1` and `--fastStart`
+- Skips heavy dev-only work like `og-image` and avoids cleaning `public/` on startup
+- Best for quick edit/preview loops
+
+Production-like local preview:
+
+```bash
+npm run dev:full
+```
+
+- Runs with the full plugin set and normal clean startup behavior
+- Use this before release checks if you want local parity with production output
+
+Legacy script (still available):
 
 ```bash
 npm run docs
 ```
 
-This runs `npx quartz build --serve -d content`. A server starts (default **http://localhost:8080**). Edit notes under `content/`; Quartz rebuilds and the browser reloads. Stop with `Ctrl+C`.
+Server starts on default **http://localhost:8080**. Edit notes under `content/`; Quartz rebuilds and the browser reloads. Stop with `Ctrl+C`.
 
 To use another content directory or options, call the CLI directly:
 

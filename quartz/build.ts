@@ -82,9 +82,13 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
   }
 
   const release = await mut.acquire()
-  perf.addEvent("clean")
-  await rm(output, { recursive: true, force: true })
-  console.log(`Cleaned output directory \`${output}\` in ${perf.timeSince("clean")}`)
+  if (argv.fastStart) {
+    console.log(styleText("yellow", `Fast start enabled, skipping clean for \`${output}\``))
+  } else {
+    perf.addEvent("clean")
+    await rm(output, { recursive: true, force: true })
+    console.log(`Cleaned output directory \`${output}\` in ${perf.timeSince("clean")}`)
+  }
 
   perf.addEvent("glob")
   const allFiles = await glob("**/*.*", argv.directory, cfg.configuration.ignorePatterns)

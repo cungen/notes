@@ -88,6 +88,11 @@ export const BuildArgv = {
     default: "public",
     describe: "output folder for files",
   },
+  fastStart: {
+    boolean: true,
+    default: false,
+    describe: "skip cleaning output folder before initial build (faster startup in dev)",
+  },
   serve: {
     boolean: true,
     default: false,
