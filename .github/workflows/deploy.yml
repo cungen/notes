@@ -31,8 +31,8 @@ jobs:
         run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
       - name: Install Dependencies
         run: npm ci
-      - name: Generate Quartz Plugin Runtime
-        run: npm run prebuild
+      - name: Install Quartz Plugins
+        run: npx quartz plugin install
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact
