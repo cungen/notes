@@ -3,17 +3,20 @@ views:
     name: Table
     order:
       - file.name
+      - file.tags
       - date
-      - tags
     sort:
       - property: date
         direction: DESC
+      - property: file.tags
+        direction: DESC
     limit: 30
     columnSize:
+      file.tags: 433
       note.date: 186
   - type: cards
     name: View
     order:
       - file.name
-      - file.ctime
+      - date
       - tags

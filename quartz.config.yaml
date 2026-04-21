@@ -210,7 +210,9 @@ plugins:
       display: mobile-only
   - source: github:quartz-community/bases-page
     enabled: true
-    options: {}
+    options: {
+      linkResolution: "shortest"
+    }
     order: 50
   - source: github:quartz-community/note-properties
     enabled: true
