@@ -2,6 +2,6 @@
 title:
 draft: false
 tags:
-  - Inbox
+  - Resource/Template
 date: 2026-04-20
 ---

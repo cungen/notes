@@ -1,0 +1,9 @@
+{
+  "id": "obsidian-memos",
+  "name": "Memos",
+  "version": "0.0.1",
+  "minAppVersion": "1.4.0",
+  "description": "Two-column memos workspace with calendar, stats, tags, and quick publish.",
+  "author": "owen",
+  "isDesktopOnly": false
+}

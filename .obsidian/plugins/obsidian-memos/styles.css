@@ -1,0 +1,352 @@
+.memos-view-root .view-content {
+  padding: 0;
+}
+
+.memos-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.memos-sidebar,
+.memos-content {
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.memos-sidebar {
+  overflow: hidden;
+}
+
+.memos-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memos-sidebar h3,
+.memos-composer h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.memos-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.memos-calendar-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.memos-calendar-nav {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  cursor: pointer;
+}
+
+.memos-calendar-row {
+  display: grid;
+  grid-template-columns: 26px repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.memos-calendar-row.labels span,
+.memos-week-label {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.memos-week-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memos-calendar-cell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary-alt);
+  padding: 0;
+  color: var(--text-muted);
+}
+
+.memos-calendar-cell.clickable {
+  cursor: pointer;
+}
+
+.memos-calendar-cell.active {
+  outline: 2px solid var(--interactive-accent);
+}
+
+.memos-calendar-cell.today {
+  border-color: var(--interactive-accent);
+}
+
+.memos-calendar-cell.outside-month {
+  opacity: 0.35;
+}
+
+.memos-calendar-day {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.memos-calendar-count {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 9px;
+  color: var(--text-normal);
+}
+
+.memos-calendar-legend {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.memos-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--background-modifier-border);
+  display: inline-block;
+  background: var(--background-primary-alt);
+}
+
+.memos-calendar-cell.level-1 {
+  background: color-mix(in srgb, var(--interactive-accent) 25%, var(--background-primary));
+}
+
+.memos-calendar-cell.level-2 {
+  background: color-mix(in srgb, var(--interactive-accent) 45%, var(--background-primary));
+}
+
+.memos-calendar-cell.level-3 {
+  background: color-mix(in srgb, var(--interactive-accent) 65%, var(--background-primary));
+}
+
+.memos-calendar-cell.level-4 {
+  background: color-mix(in srgb, var(--interactive-accent) 85%, var(--background-primary));
+}
+
+.memos-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.memos-stat-card {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.memos-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.memos-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.memos-tag-cloud h4 {
+  margin: 0 0 8px;
+}
+
+.memos-tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.memos-tag-chip {
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  border-radius: 999px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.memos-tag-chip.active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.memos-composer {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  max-width: 768px;
+}
+
+.memos-composer-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.memos-cancel-edit {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  background: var(--background-primary);
+  cursor: pointer;
+}
+
+.memos-input,
+.memos-textarea {
+  width: 100%;
+}
+
+.memos-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.memos-filter-hint {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 10px 0;
+  width: 100%;
+  max-width: 768px;
+}
+
+.memos-filter-hint button {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.memos-list {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  max-width: 768px;
+  max-height: calc(100% - 220px);
+  overflow: auto;
+}
+
+.memos-item {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.memos-item.active {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 1px var(--interactive-accent);
+}
+
+.memos-item h4 {
+  margin: 0 0 8px;
+}
+
+.memos-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.memos-item-content {
+  margin-top: 8px;
+  color: var(--text-normal);
+  white-space: pre-wrap;
+}
+
+.memos-item-footer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.memos-item-actions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+}
+
+.memos-item:hover .memos-item-actions,
+.memos-item:focus-within .memos-item-actions,
+.memos-item.active .memos-item-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.memos-icon-btn {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  padding: 0;
+}
+
+.memos-icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.memos-icon-btn:hover {
+  color: var(--text-normal);
+}
+
+.memos-icon-btn.danger:hover {
+  color: var(--text-error);
+}
+
+.memos-empty {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .memos-layout {
+    grid-template-columns: 1fr;
+  }
+}
