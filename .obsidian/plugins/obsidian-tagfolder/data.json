@@ -1,6 +1,6 @@
 {
   "displayMethod": "NAME",
-  "alwaysOpen": false,
+  "alwaysOpen": true,
   "ignoreDocTags": "",
   "ignoreTags": "",
   "hideOnRootTags": "",
@@ -10,7 +10,7 @@
   "expandLimit": 0,
   "disableNestedTags": false,
   "hideItems": "ALL_EXCEPT_BOTTOM",
-  "ignoreFolders": "quartz",
+  "ignoreFolders": "quartz,node_modules",
   "targetFolders": "content",
   "scanDelay": 250,
   "useTitle": true,
@@ -40,5 +40,6 @@
   },
   "linkShowOnlyFDR": true,
   "linkCombineOtherTree": true,
-  "showListIn": ""
+  "showListIn": "",
+  "displayFolderAsTag": false
 }

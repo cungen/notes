@@ -157,7 +157,7 @@ plugins:
       position: beforeBody
       priority: 20
   - source: github:quartz-community/tag-list
-    enabled: true
+    enabled: false
     layout:
       position: beforeBody
       priority: 30
@@ -189,17 +189,17 @@ plugins:
     options:
       provider: giscus
       options:
-        repo: "cungen/notes"
-        repoId: "R_kgDOOD6t7g"
-        category: "Announcements"
-        categoryId: "DIC_kwDOOD6t7s4C7aa8"
-        mapping: "pathname"
+        repo: cungen/notes
+        repoId: R_kgDOOD6t7g
+        category: Announcements
+        categoryId: DIC_kwDOOD6t7s4C7aa8
+        mapping: pathname
         strict: true
         reactionsEnabled: true
-        inputPosition: "bottom"
-        lightTheme: "light"
-        darkTheme: "dark"
-        lang: "en"
+        inputPosition: bottom
+        lightTheme: light
+        darkTheme: dark
+        lang: en
     layout:
       position: afterBody
       priority: 10
@@ -214,11 +214,10 @@ plugins:
     options:
       title: Recent Notes
       limit: 5
-      linkToMore: false
       showTags: false
     layout:
       position: right
-      priority: 25
+      priority: 11
   - source: github:quartz-community/spacer
     enabled: true
     options: {}
@@ -271,17 +270,16 @@ plugins:
       position: afterBody
       priority: 50
       display: all
-  - source: github:quartz-community/tui
-    enabled: false
-    options: {}
-    order: 50
   - source:
       name: quartz-themes
       repo: github:saberzero1/quartz-themes
       subdir: plugin
     enabled: true
     options:
-      theme: material-gruvbox
+      # absolutegruv,abyssal,cyber-glow,everforest
+      # monokai,obsidian-nord
+      # theme: material-gruvbox
+      theme: cyber-glow
 layout:
   groups:
     toolbar:
