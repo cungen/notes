@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: 🕹️通往核心地带
+  pageTitle: 🕹Digital Space️ For Owen
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -47,11 +47,11 @@ plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
     options:
-      defaultDateType: created
+      defaultDateType: modified
       priority:
-        - frontmatter
         - git
         - filesystem
+        - frontmatter
     order: 10
   - source: github:quartz-community/syntax-highlighting
     enabled: true
@@ -157,7 +157,7 @@ plugins:
       position: beforeBody
       priority: 20
   - source: github:quartz-community/tag-list
-    enabled: false
+    enabled: true
     layout:
       position: beforeBody
       priority: 30
@@ -185,10 +185,21 @@ plugins:
       priority: 5
       condition: not-index
   - source: github:quartz-community/comments
-    enabled: false
+    enabled: true
     options:
       provider: giscus
-      options: {}
+      options:
+        repo: "cungen/notes"
+        repoId: "R_kgDOOD6t7g"
+        category: "Announcements"
+        categoryId: "DIC_kwDOOD6t7s4C7aa8"
+        mapping: "pathname"
+        strict: true
+        reactionsEnabled: true
+        inputPosition: "bottom"
+        lightTheme: "light"
+        darkTheme: "dark"
+        lang: "en"
     layout:
       position: afterBody
       priority: 10
@@ -200,6 +211,14 @@ plugins:
         Discord Community: https://discord.gg/cRFFHYye7t
   - source: github:quartz-community/recent-notes
     enabled: true
+    options:
+      title: Recent Notes
+      limit: 5
+      linkToMore: false
+      showTags: false
+    layout:
+      position: right
+      priority: 25
   - source: github:quartz-community/spacer
     enabled: true
     options: {}
@@ -210,9 +229,8 @@ plugins:
       display: mobile-only
   - source: github:quartz-community/bases-page
     enabled: true
-    options: {
-      linkResolution: "shortest"
-    }
+    options:
+      linkResolution: shortest
     order: 50
   - source: github:quartz-community/note-properties
     enabled: true
@@ -254,7 +272,7 @@ plugins:
       priority: 50
       display: all
   - source: github:quartz-community/tui
-    enabled: true
+    enabled: false
     options: {}
     order: 50
   - source:
