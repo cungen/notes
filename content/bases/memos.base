@@ -1,0 +1,16 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.tags.contains("memo")
+    order:
+      - file.name
+      - tags
+      - date
+    sort:
+      - property: date
+        direction: DESC
+    columnSize:
+      file.name: 475
+      note.tags: 304
