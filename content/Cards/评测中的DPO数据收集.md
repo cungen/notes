@@ -1,6 +1,8 @@
 ---
 tags:
-  - Project/Work/开源2025
+  - project/work/开源2025
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/RD/架构
+  - area/rd/架构
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

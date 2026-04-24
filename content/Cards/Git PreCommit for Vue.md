@@ -1,6 +1,9 @@
 ---
 tags:
-  - Inbox
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-03-06
 ---
 

@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/Course
+  - area/ai/course
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

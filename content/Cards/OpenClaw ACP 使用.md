@@ -2,8 +2,9 @@
 title:
 draft: false
 tags:
-  - Area/AI/Agent
-  - Area/AI/Agent/ACP
+  - area/ai/agent
+  - kind/note
+  - state/draft
 date: 2026-03-31
 ---
 ## 2种使用方式

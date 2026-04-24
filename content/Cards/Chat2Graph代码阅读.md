@@ -2,8 +2,9 @@
 title:
 draft: false
 tags:
-  - Area/AI/Agent
-  - "#Area/AI/Graph"
+  - area/ai/agent
+  - kind/note
+  - state/draft
 date: 2025-05-19
 ---
 

@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/RD/Docker
+  - area/rd/docker
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 # 介绍

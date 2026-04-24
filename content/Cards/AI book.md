@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/Books
+  - area/ai/books
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

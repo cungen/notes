@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/RD
+  - area/rd
+  - kind/note
+  - state/draft
   - share
 date: 2025-03-06
 ---

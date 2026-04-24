@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/Dev/K8s
+  - area/dev/k8s
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

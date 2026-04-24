@@ -2,10 +2,9 @@
 title: Hermes Agent 仓库分析：架构、Prompt、工具与自进化
 draft: false
 tags:
-  - Area/AI/Agent/ACP
-  - Area/AI/Agent/Architecture
-  - Area/AI/PromptEngineering
-  - Area/AI/SelfImprovement
+  - area/ai/agent/acp
+  - kind/note
+  - state/draft
 date: 2026-04-13
 ---
 

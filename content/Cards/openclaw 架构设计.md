@@ -2,7 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - inbox
 date: 2026-02-27
 ---
 ## 设计亮点

@@ -1,7 +1,9 @@
 ---
 tags:
+  - resource/工具/mac
+  - kind/note
+  - state/draft
   - share
-  - Resource/工具/Mac
 date: 2025-03-06
 ---
 

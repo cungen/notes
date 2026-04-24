@@ -2,8 +2,9 @@
 title: Agent Client Protocol（ACP）整合笔记
 draft: false
 tags:
-  - Area/AI/Agent/ACP
-  - Area/AI/Agent
+  - area/ai/agent/acp
+  - kind/note
+  - state/draft
 date: 2026-04-10
 ---
 

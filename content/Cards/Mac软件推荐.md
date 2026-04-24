@@ -1,6 +1,8 @@
 ---
 tags:
-  - Resource/软件
+  - resource/软件
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

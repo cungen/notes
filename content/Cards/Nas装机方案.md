@@ -1,6 +1,8 @@
 ---
 tags:
-  - Resource/Nas
+  - resource/nas
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

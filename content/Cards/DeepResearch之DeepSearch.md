@@ -2,7 +2,9 @@
 title:
 draft: false
 tags:
-  - "#Area/AI/Research"
+  - area/ai/research
+  - kind/note
+  - state/draft
 date: 2025-04-15
 ---
 [# 端到端的训练，怎么复现 Deep ReSearch（上） ：先从 Deep Search 做起](https://mp.weixin.qq.com/s/4JNsIfTXp9X7uauyIiJtaQ)

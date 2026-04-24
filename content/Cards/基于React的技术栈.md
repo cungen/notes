@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/FE/React
+  - area/fe/react
+  - kind/note
+  - state/draft
 date: 2025-03-10
 ---
 - 框架：Next.js

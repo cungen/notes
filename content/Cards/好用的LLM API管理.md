@@ -1,6 +1,8 @@
 ---
 tags:
-  - Resource/LLM/API
+  - resource/llm/api
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

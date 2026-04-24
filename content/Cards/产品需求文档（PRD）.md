@@ -2,7 +2,9 @@
 title:
 draft: false
 tags:
-  - Resource/软件
+  - resource/软件
+  - kind/note
+  - state/draft
 date: 2025-09-28
 ---
 > "PRD一般的由哪些内容组成" by Deepseek Reasoner

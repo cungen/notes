@@ -2,7 +2,9 @@
 title: GrideaPro里的一些话
 draft: false
 tags:
-  - "#memo"
+  - resource/学习笔记
+  - kind/note
+  - state/draft
 date: 2026-04-23
 ---
 [GrideaPro](https://github.com/Gridea-Pro/gridea-pro) 是下一代桌面静态博客写作客户端 —— 像用 Notion 一样写博客。

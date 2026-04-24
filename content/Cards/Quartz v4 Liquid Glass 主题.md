@@ -2,11 +2,14 @@
 title: Quartz Liquid Glass 主题（v5）
 draft: false
 tags:
-  - Quartz
-  - Quartz-v5
-  - Obsidian
-  - UI-Design
-  - Glassmorphism
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - quartz
+  - quartz-v5
+  - obsidian
+  - ui-design
+  - glassmorphism
 date: 2026-04-20
 ---
 

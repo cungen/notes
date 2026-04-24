@@ -25,6 +25,7 @@
     "excalidraw-open-md": "checkbox",
     "date": "date",
     "excalidraw-export-internal-links": "checkbox",
-    "excalidraw-embed-md": "checkbox"
+    "excalidraw-embed-md": "checkbox",
+    "create_at": "datetime"
   }
 }

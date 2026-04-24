@@ -2,9 +2,9 @@
 title: Agent上下文压缩策略调研与落地计划
 draft: false
 tags:
-  - Area/AI/Agent/ACP
-  - Area/AI/Context-Engineering
-  - Area/AI/Agent-Memory
+  - area/ai/agent/acp
+  - kind/note
+  - state/draft
 date: 2026-04-13
 ---
 

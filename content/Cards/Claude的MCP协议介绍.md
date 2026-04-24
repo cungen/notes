@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/Agent
+  - area/ai/agent
+  - kind/note
+  - state/draft
 date: 2025-03-26
 ---
 ## 介绍

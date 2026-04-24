@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/RD/Editor
+  - area/rd/editor
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

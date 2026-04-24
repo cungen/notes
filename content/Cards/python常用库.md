@@ -2,7 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - inbox
 create_at:
 date: 2025-07-09
 ---

@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/Eval
+  - area/ai/eval
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 ## 介绍

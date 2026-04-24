@@ -1,7 +1,9 @@
 ---
 tags:
-  - Area/AI/RL
-  - Inbox
+  - area/ai/rl
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-05-28
 ---
 ## 定义

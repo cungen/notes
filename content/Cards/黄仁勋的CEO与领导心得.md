@@ -1,6 +1,8 @@
 ---
 tags:
-  - Resource/语录/黄仁勋
+  - resource/语录/黄仁勋
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

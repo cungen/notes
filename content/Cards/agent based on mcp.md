@@ -2,7 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-05-13
 ---
 ## 诉求

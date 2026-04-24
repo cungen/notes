@@ -1,7 +1,8 @@
 ---
 tags:
-  - Resource/LLM/o1
-  - Resource/LLM/Prompt
+  - resource/llm/o1
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

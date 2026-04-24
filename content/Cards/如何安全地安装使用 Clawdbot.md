@@ -2,7 +2,10 @@
 title: clawdbot
 draft: false
 tags:
-  - Inbox
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - inbox
   - project
 date: 2026-01-27
 mindmap-plugin: basic

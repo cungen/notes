@@ -2,7 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - inbox
 date: 2026-01-05
 ---
 1. 你需要 Review

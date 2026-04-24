@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/长文本
+  - area/ai/长文本
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

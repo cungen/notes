@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/RD/Network
+  - area/rd/network
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

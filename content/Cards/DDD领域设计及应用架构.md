@@ -1,7 +1,8 @@
 ---
 tags:
-  - Area/RD/系统设计
-  - Area/RD/架构
+  - area/rd/系统设计
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

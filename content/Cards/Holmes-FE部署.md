@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/RD/Holmes
+  - area/rd/holmes
+  - kind/note
+  - state/draft
 date: 2025-03-26
 ---
 

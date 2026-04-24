@@ -2,7 +2,9 @@
 title:
 draft: false
 tags:
-  - Area/AI/RL
+  - area/ai/rl
+  - kind/note
+  - state/draft
 date: 2025-05-28
 ---
 [[「RL」表格型方法]] 的问题：无法表达连续的状态空间或动作

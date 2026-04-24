@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/RL
+  - area/ai/rl
+  - kind/note
+  - state/draft
 date: 2025-05-28
 ---
 

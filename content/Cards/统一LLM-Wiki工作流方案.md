@@ -2,8 +2,9 @@
 title: 分层 LLM-Wiki 工作流方案
 draft: false
 tags:
-  - Area/AI/Agent/ACP
-  - Area/Knowledge/PKM
+  - area/ai/agent/acp
+  - kind/note
+  - state/draft
 date: 2026-04-22
 ---
 

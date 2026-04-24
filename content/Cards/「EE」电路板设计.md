@@ -2,7 +2,9 @@
 title:
 draft: false
 tags:
-  - "#Area/Hardware"
+  - area/hardware
+  - kind/note
+  - state/draft
 date: 2025-09-08
 ---
 设计一款类似ESP32的开发板是一个复杂且专业的过程，需要综合考虑硬件设计、电路布局、软件开发等多个方面。

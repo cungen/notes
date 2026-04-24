@@ -2,7 +2,9 @@
 title:
 draft: false
 tags:
-  - Area/Hardware
+  - area/hardware
+  - kind/note
+  - state/draft
 date: 2025-09-08
 ---
 ## 多层板依据

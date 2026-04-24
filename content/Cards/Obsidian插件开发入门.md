@@ -2,8 +2,10 @@
 title: Obsidian 插件开发入门
 draft: false
 tags:
-  - Area/Tools/Obsidian
-  - Topic/Dev
+  - area/tools/obsidian
+  - kind/note
+  - state/draft
+  - topic/dev
 date: 2026-04-22
 ---
 

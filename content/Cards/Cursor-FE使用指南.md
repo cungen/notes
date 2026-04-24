@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/FE
+  - area/fe
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

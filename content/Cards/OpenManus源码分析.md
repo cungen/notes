@@ -2,7 +2,9 @@
 title: OpenManus源码分析
 draft: false
 tags:
-  - Area/AI/Agent
+  - area/ai/agent
+  - kind/note
+  - state/draft
 date: 2025-03-26
 ---
 ## 目标

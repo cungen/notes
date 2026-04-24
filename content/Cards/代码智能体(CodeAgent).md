@@ -2,8 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
-  - Area/AI/Agent
+  - area/ai/agent
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-09-26
 ---
 ## Source

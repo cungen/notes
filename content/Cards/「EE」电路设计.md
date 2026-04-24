@@ -2,8 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
-  - Area/Hardware
+  - area/hardware
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-09-08
 ---
 ## 布局指南

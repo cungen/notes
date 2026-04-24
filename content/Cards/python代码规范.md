@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/RD/Guideline
+  - area/rd/guideline
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

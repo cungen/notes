@@ -2,8 +2,9 @@
 title:
 draft: false
 tags:
-  - Area/AI/Agent
-  - Resource/LLM/Prompt
-  - Inbox
+  - area/ai/agent
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-05-20
 ---

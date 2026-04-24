@@ -2,8 +2,9 @@
 title:
 draft: false
 tags:
-  - Area/RD/系统设计
-  - Area/RD
+  - area/rd/系统设计
+  - kind/note
+  - state/draft
 date: 2025-05-27
 ---
 ### docker

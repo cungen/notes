@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/论文
+  - area/ai/论文
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

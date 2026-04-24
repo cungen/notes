@@ -1,6 +1,8 @@
 ---
 tags:
-  - 
+  - resource/学习笔记
+  - kind/note
+  - state/draft
 date: 2025-05-06
 ---
 

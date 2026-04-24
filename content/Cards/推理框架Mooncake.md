@@ -1,6 +1,8 @@
 ---
 tags:
-  - Area/AI/Infer
+  - area/ai/infer
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

@@ -2,8 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
-  - Resource/LLM/Prompt
+  - resource/llm/prompt
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-06-13
 ---
 ## For cline

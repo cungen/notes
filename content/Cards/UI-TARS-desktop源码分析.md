@@ -2,7 +2,9 @@
 title:
 draft: false
 tags:
-  - Area/AI/Agent
+  - area/ai/agent
+  - kind/note
+  - state/draft
 date: 2025-03-26
 ---
 ## 实现思路

@@ -1,7 +1,8 @@
 ---
 tags:
-  - Area/FE
-  - Area/AI/Agent
+  - area/fe
+  - kind/note
+  - state/draft
 date: 2025-03-06
 ---
 

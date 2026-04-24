@@ -2,7 +2,10 @@
 title:
 draft: false
 tags:
-  - Inbox
+  - resource/学习笔记
+  - kind/note
+  - state/draft
+  - inbox
 date: 2025-09-08
 ---
 > [!WARNING] 如果某些快捷键不生效，大多情况可能是输入法或没有选择对象的原因，可以切到英文输入法或尝试选择对象后尝试
