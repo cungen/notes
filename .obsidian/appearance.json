@@ -3,7 +3,7 @@
   "translucency": true,
   "cssTheme": "Border",
   "baseFontSizeAction": true,
-  "theme": "system",
+  "theme": "moonstone",
   "baseFontSize": 16,
   "enabledCssSnippets": [
     "page-width"

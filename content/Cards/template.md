@@ -1,9 +1,0 @@
----
-title:
-draft: false
-tags:
-  - resource/template
-  - kind/note
-  - state/draft
-date: 2026-04-20
----

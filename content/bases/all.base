@@ -1,0 +1,32 @@
+formulas:
+  file_name: file.name
+  file_tags: file.tags
+properties:
+  formula.file_name:
+    displayName: file_name
+  formula.file_tags:
+    displayName: file_tags
+  date:
+    displayName: date
+views:
+  - type: table
+    name: Table
+    order:
+      - formula.file_name
+      - formula.file_tags
+      - date
+    sort:
+      - property: date
+        direction: DESC
+      - property: formula.file_tags
+        direction: DESC
+    limit: 30
+    columnSize:
+      formula.file_tags: 433
+      date: 186
+  - type: cards
+    name: View
+    order:
+      - formula.file_name
+      - date
+      - formula.file_tags

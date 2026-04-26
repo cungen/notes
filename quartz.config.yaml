@@ -11,6 +11,7 @@ configuration:
   ignorePatterns:
     - private
     - templates
+    - bases
     - .obsidian
     - Excalidraw
     - Attachments
@@ -227,10 +228,10 @@ plugins:
       priority: 25
       display: mobile-only
   - source: github:quartz-community/bases-page
-    enabled: true
+    enabled: false
     options:
+      defaultViewType: table
       linkResolution: shortest
-    order: 50
   - source: github:quartz-community/note-properties
     enabled: true
     options:
@@ -277,9 +278,8 @@ plugins:
     enabled: true
     options:
       # absolutegruv,abyssal,cyber-glow,everforest
-      # monokai,obsidian-nord
-      # theme: material-gruvbox
-      theme: cyber-glow
+      # monokai,obsidian-nord,material-gruvbox
+      theme: vanilla-palettes.atom-one
 layout:
   groups:
     toolbar:

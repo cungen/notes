@@ -1,6 +1,5 @@
 [
   "obsidian-git",
-  "chronology",
   "obsidian-tagfolder",
   "tag-wrangler",
   "obsidian-plantuml",
@@ -16,5 +15,8 @@
   "colored-tags",
   "darlal-switcher-plus",
   "smart-composer",
-  "obsidian-memos"
+  "obsidian-memos",
+  "quickadd",
+  "obsidian-tasks-plugin",
+  "calendar"
 ]

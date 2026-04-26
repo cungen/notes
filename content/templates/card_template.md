@@ -1,9 +1,9 @@
 ---
-title:
+title: {{date:YYYY-MM-DD}}
 draft: false
 tags:
   - resource/template
   - kind/note
   - state/draft
-date: 2026-04-20
+date: {{date:YYYY-MM-DD}}
 ---
