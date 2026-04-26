@@ -44,6 +44,9 @@ configuration:
         tertiary: "#84a59d"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#b3aa0288"
+externalPlugins:
+  - ./plugins/quartz-header-nav
+  - ./plugins/quartz-tag-cloud-page
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
@@ -124,6 +127,33 @@ plugins:
     enabled: true
   - source: github:quartz-community/tag-page
     enabled: true
+  - source: ./plugins/quartz-header-nav
+    enabled: true
+    options:
+      nav:
+        - label: Home
+          href: /
+        - label: Tags
+          href: /tags
+        - label: Tag Cloud
+          href: /tags-cloud
+    order: 20
+    layout:
+      position: beforeBody
+      priority: -100
+  - source: ./plugins/quartz-tag-cloud-page
+    enabled: true
+    options:
+      title: Tag Cloud
+      includeTreeTags: true
+      minCount: 1
+      minSize: 12
+      maxSize: 60
+      gridSize: 8
+      ellipticity: 1
+      shape: circle
+      rotateRatio: 0.3
+    order: 126
   - source: github:quartz-community/explorer
     enabled: true
     layout:

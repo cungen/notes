@@ -12,7 +12,7 @@ views:
   - type: table
     name: Table
     order:
-      - formula.file_name
+      - file.name
       - formula.file_tags
       - date
     sort:
@@ -22,8 +22,8 @@ views:
         direction: DESC
     limit: 30
     columnSize:
+      file.name: 542
       formula.file_tags: 433
-      date: 186
   - type: cards
     name: View
     order:

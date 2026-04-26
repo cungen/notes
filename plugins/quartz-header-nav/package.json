@@ -1,0 +1,55 @@
+{
+  "name": "quartz-header-nav",
+  "version": "0.1.0",
+  "description": "Custom top navigation component plugin for Quartz.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    },
+    "./components": {
+      "import": "./components/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "quartz-header-nav",
+    "displayName": "Quartz Header Nav",
+    "description": "Configurable navigation component for page header area.",
+    "category": "component",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "defaultOrder": 20,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "nav": [
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "Tags",
+          "href": "/tags"
+        },
+        {
+          "label": "Tag Cloud",
+          "href": "/tags-cloud"
+        }
+      ]
+    },
+    "components": {
+      "HeaderNav": {
+        "name": "HeaderNav",
+        "displayName": "Header Nav",
+        "description": "Top nav pills with active state.",
+        "version": "0.1.0",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 1
+      }
+    }
+  },
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  }
+}
