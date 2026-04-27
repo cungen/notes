@@ -147,12 +147,14 @@ plugins:
       title: Tag Cloud
       includeTreeTags: true
       minCount: 1
-      minSize: 12
-      maxSize: 60
+      minSize: 10
+      maxSize: 40
       gridSize: 8
       ellipticity: 1
       shape: circle
-      rotateRatio: 0.3
+      rotateRatio: 0.22
+      fontFamily: "Source Sans Pro, system-ui, sans-serif"
+      spiral: rectangular
     order: 126
   - source: github:quartz-community/explorer
     enabled: true

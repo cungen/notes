@@ -5,16 +5,18 @@ const defaultOptions = {
   title: "Tag Cloud",
   includeTreeTags: true,
   minCount: 1,
-  minSize: 12,
-  maxSize: 60,
+  minSize: 10,
+  maxSize: 40,
   gridSize: 8,
   ellipticity: 1,
   backgroundColor: "transparent",
   shape: "circle",
   shuffle: true,
-  rotateRatio: 0.3,
+  rotateRatio: 0.22,
   minRotation: -0.785,
   maxRotation: 0.785,
+  fontFamily: "system-ui, sans-serif",
+  spiral: "rectangular",
 }
 
 const colorPalette = [
@@ -89,23 +91,21 @@ const TagCloudContent = (options) => {
       return { tag, count, color: colorPalette[seed % colorPalette.length] }
     })
 
-    const minSize = Number(options.minSize ?? 12)
+    const minSize = Number(options.minSize ?? 10)
     const maxSize = Number(options.maxSize ?? 60)
     const sizeRange = Math.max(maxSize - minSize, 1)
     const total = Math.max(tagData.length - 1, 1)
 
-    // Deterministic rank-only sizing with strong contrast.
-    // This guarantees visible differences regardless of count distribution.
-    const list = tagData.map((t, index) => {
+    // Rebalanced sizing: slightly larger top tags with tighter packing.
+    const words = tagData.map((t, index) => {
       const rankRatio = 1 - index / total
-      const emphasized = Math.pow(rankRatio, 2.6)
-      const px = Math.round(minSize + sizeRange * emphasized)
-      return [t.tag, px]
+      const emphasized = Math.pow(rankRatio, 1.18)
+      const size = Math.max(minSize, Math.round(minSize + sizeRange * emphasized))
+      return { ...t, size }
     })
 
     const payloadJson = toSafeInlineJson({
-      list,
-      tagData,
+      words,
       colors: colorPalette,
       options: {
       minSize: options.minSize,
@@ -118,6 +118,8 @@ const TagCloudContent = (options) => {
       rotateRatio: options.rotateRatio,
       minRotation: options.minRotation,
       maxRotation: options.maxRotation,
+      fontFamily: options.fontFamily,
+      spiral: options.spiral,
       },
     })
 
@@ -130,7 +132,7 @@ const TagCloudContent = (options) => {
         : h(
             "div",
             { class: "tag-cloud-page__canvas-container", "data-page-slug": fileData.slug ?? "tags-cloud" },
-            h("canvas", { class: "tag-cloud-page__canvas" })
+            h("div", { class: "tag-cloud-page__surface" })
           ),
       filteredEntries.length > 0 &&
         h(
@@ -147,16 +149,24 @@ const TagCloudContent = (options) => {
 
   TagCloudComponent.afterDOMLoaded = `
 (function () {
-  function ensureWordCloudLoaded(cb) {
-    if (window.WordCloud) return cb()
-    var existing = document.querySelector('script[data-wordcloud2-loader="1"]')
+  function loadScript(url, key, cb) {
+    var doneAttr = "data-tag-cloud-loader-" + key
+    var existing = document.querySelector('script[' + doneAttr + '="1"]')
     if (existing) return existing.addEventListener("load", cb, { once: true })
     var script = document.createElement("script")
-    script.src = "https://cdn.jsdelivr.net/npm/wordcloud@1.2.3/src/wordcloud2.min.js"
+    script.src = url
     script.async = true
-    script.setAttribute("data-wordcloud2-loader", "1")
+    script.setAttribute(doneAttr, "1")
     script.addEventListener("load", cb, { once: true })
     document.head.appendChild(script)
+  }
+
+  function ensureD3CloudLoaded(cb) {
+    if (window.d3 && window.d3.layout && window.d3.layout.cloud) return cb()
+    loadScript("https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js", "d3", function () {
+      if (window.d3 && window.d3.layout && window.d3.layout.cloud) return cb()
+      loadScript("https://cdn.jsdelivr.net/npm/d3-cloud@1/build/d3.layout.cloud.js", "d3-cloud", cb)
+    })
   }
 
   function getPayload() {
@@ -172,75 +182,91 @@ const TagCloudContent = (options) => {
   function renderTagCloud() {
     var payload = getPayload()
     if (!payload) return
-    var canvas = document.querySelector(".tag-cloud-page__canvas")
-    if (!canvas) return
-    var container = canvas.parentElement
+    var surface = document.querySelector(".tag-cloud-page__surface")
+    if (!surface) return
+    var container = surface.parentElement
     if (!container) return
 
-    var list = payload.list || []
-    var tagData = payload.tagData || []
+    var words = payload.words || []
     var opts = payload.options || {}
-    var colors = payload.colors || []
-    if (!list.length) return
-    function resizeCanvas() {
-      var rect = container.getBoundingClientRect()
-      canvas.width = Math.max(1, Math.floor(rect.width))
-      canvas.height = Math.max(1, Math.floor(rect.height))
-      canvas.style.width = rect.width + "px"
-      canvas.style.height = rect.height + "px"
-    }
-
-    var tagMap = new Map(tagData.map(function (t) { return [t.tag, t] }))
+    if (!words.length || !window.d3 || !window.d3.layout || !window.d3.layout.cloud) return
 
     function draw() {
-      window.WordCloud(canvas, {
-        list: list,
-        gridSize: opts.gridSize,
-        // Use precomputed px value directly from list.
-        weightFactor: 1,
-        fontFamily: "var(--font-body), system-ui, sans-serif",
-        color: function (word) {
-          var tagInfo = tagMap.get(word)
-          return tagInfo ? tagInfo.color : colors[0] || "#6a4c93"
-        },
-        backgroundColor: opts.backgroundColor,
-        shape: opts.shape,
-        ellipticity: opts.ellipticity,
-        shuffle: opts.shuffle,
-        rotateRatio: opts.rotateRatio,
-        rotationSteps: 2,
-        minRotation: opts.minRotation,
-        maxRotation: opts.maxRotation,
-        drawOutOfBound: false,
-        shrinkToFit: true,
-        click: function (item) {
-          var tag = item[0]
-          var prefix = window.location.pathname.replace(/\\/tags-cloud\\/?$/, "/")
-          if (prefix === window.location.pathname) prefix = "/"
-          window.location.href = prefix + "tags/" + encodeURIComponent(tag) + "/"
-        },
-        hover: function (item) {
-          canvas.style.cursor = item ? "pointer" : "default"
-        },
+      var rect = container.getBoundingClientRect()
+      var width = Math.max(1, Math.floor(rect.width))
+      var height = Math.max(1, Math.floor(rect.height))
+      surface.innerHTML = ""
+
+      var verticalRatio = Math.max(0, Math.min(1, Number(opts.rotateRatio ?? 0.22)))
+      var cssFontBody = getComputedStyle(document.documentElement).getPropertyValue("--font-body").trim()
+      var fontFamily = String(opts.fontFamily || "").trim() || (cssFontBody ? (cssFontBody + ", system-ui, sans-serif") : "system-ui, sans-serif")
+      var cloudWords = words.map(function (w) {
+        var rotation = Math.random() < verticalRatio ? 90 : 0
+        return {
+          text: w.tag,
+          size: Math.max(1, Number(w.size) || 12),
+          color: w.color,
+          count: w.count,
+          rotate: Math.round(rotation / 45) * 45,
+        }
       })
+
+      window.d3.layout.cloud()
+        .size([width, height])
+        .words(cloudWords)
+        .text(function (d) { return d.text })
+        .padding(Math.max(2, Number(opts.gridSize) || 8))
+        .rotate(function (d) { return d.rotate })
+        .font(fontFamily)
+        .spiral(opts.spiral === "archimedean" ? "archimedean" : "rectangular")
+        .fontSize(function (d) { return d.size })
+        .on("end", function (layoutWords) {
+          var svg = window.d3.select(surface)
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", "0 0 " + width + " " + height)
+            .attr("preserveAspectRatio", "xMidYMid meet")
+
+          var root = svg.append("g").attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")")
+
+          root.selectAll("text")
+            .data(layoutWords)
+            .enter()
+            .append("text")
+            .style("font-size", function (d) { return d.size + "px" })
+            .style("font-family", fontFamily)
+            .style("fill", function (d) { return d.color || "#6a4c93" })
+            .style("text-shadow", "0 1px 1px rgba(0, 0, 0, 0.14), 0 0 1px rgba(255, 255, 255, 0.22)")
+            .style("cursor", "pointer")
+            .attr("text-anchor", "middle")
+            .attr("transform", function (d) { return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")" })
+            .text(function (d) { return d.text })
+            .on("click", function (_event, d) {
+              var prefix = window.location.pathname.replace(/\\/tags-cloud\\/?$/, "/")
+              if (prefix === window.location.pathname) prefix = "/"
+              window.location.href = prefix + "tags/" + encodeURIComponent(d.text) + "/"
+            })
+            .append("title")
+            .text(function (d) { return d.text + " (" + d.count + ")" })
+        })
+        .start()
     }
 
-    resizeCanvas()
     draw()
 
-    if (canvas.__tagCloudResizeObserver) {
-      canvas.__tagCloudResizeObserver.disconnect()
+    if (surface.__tagCloudResizeObserver) {
+      surface.__tagCloudResizeObserver.disconnect()
     }
     var ro = new ResizeObserver(function () {
-      resizeCanvas()
       draw()
     })
     ro.observe(container)
-    canvas.__tagCloudResizeObserver = ro
+    surface.__tagCloudResizeObserver = ro
   }
 
   function bootstrap() {
-    ensureWordCloudLoaded(renderTagCloud)
+    ensureD3CloudLoaded(renderTagCloud)
   }
 
   if (document.readyState === "loading") {
@@ -275,7 +301,7 @@ const TagCloudContent = (options) => {
   position: relative;
 }
 
-.tag-cloud-page__canvas {
+.tag-cloud-page__surface {
   display: block;
   width: 100%;
   height: 100%;

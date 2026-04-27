@@ -1,7 +1,7 @@
 {
   "name": "quartz-tag-cloud-page",
   "version": "0.1.0",
-  "description": "Tag cloud page type plugin for Quartz using wordcloud2.js.",
+  "description": "Tag cloud page type plugin for Quartz using d3-cloud.",
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -13,7 +13,7 @@
   "quartz": {
     "name": "quartz-tag-cloud-page",
     "displayName": "Quartz Tag Cloud Page",
-    "description": "Generates a tags-cloud page with wordcloud2.js.",
+    "description": "Generates a tags-cloud page with d3-cloud.",
     "category": "pageType",
     "version": "0.1.0",
     "quartzVersion": ">=5.0.0",
@@ -23,15 +23,16 @@
       "title": "Tag Cloud",
       "includeTreeTags": true,
       "minCount": 1,
-      "minSize": 12,
-      "maxSize": 60,
+      "minSize": 10,
+      "maxSize": 40,
       "gridSize": 8,
-      "ellipticity": 1
+      "ellipticity": 1,
+      "rotateRatio": 0.22,
+      "fontFamily": "system-ui, sans-serif",
+      "spiral": "rectangular"
     }
   },
-  "dependencies": {
-    "wordcloud": "^1.2.3"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "preact": "^10.0.0"
   }
