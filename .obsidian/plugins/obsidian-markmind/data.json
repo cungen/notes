@@ -4,7 +4,7 @@
   "fontSize": 16,
   "background": "transparent",
   "layout": "mindmap",
-  "layoutDirect": "mindmap",
+  "layoutDirect": "right",
   "protocol": "jump-to-pdf",
   "registerPdfEvent": true,
   "viewerTheme": 2,
