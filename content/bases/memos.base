@@ -3,14 +3,12 @@ views:
     name: Table
     filters:
       and:
-        - file.tags.contains("memo")
+        - file.name.startsWith("memo_")
     order:
       - file.name
-      - tags
-      - date
-    sort:
-      - property: date
-        direction: DESC
+      - file.tags
+      - create_at
+    sort: []
     columnSize:
-      file.name: 475
-      note.tags: 304
+      file.name: 714
+      file.tags: 451

@@ -109,6 +109,8 @@ layer: cards              # raw | wiki | cards
 
 ## 六、分层运营流程（Ingest / Query / Lint）
 
+
+![llm_wiki_arch](https://github.com/nashsu/llm_wiki/raw/main/assets/llm_wiki_arch.jpg)
 ### 1) Ingest（新增资料）
 
 输入：新网页、论文、会议纪要、聊天记录。
