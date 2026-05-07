@@ -1,0 +1,184 @@
+/*
+  Obsidian leaf = nested flex. Use flex: 1 1 0 + min-height: 0 so Zmind fills the full pane
+  (avoid position:absolute + inset:0 when parent height is not resolved — causes “half pane”).
+  JS in view.ts also sets .zmind-root height from .view-content’s measured height.
+*/
+.workspace-split.mod-vertical > .workspace-leaf,
+.workspace-split.mod-horizontal > .workspace-leaf {
+  min-height: 0 !important;
+}
+
+/* Plugin adds .zmind-workspace-leaf on the leaf for reliable split sizing (no :has() needed). */
+.workspace-split.mod-vertical > .workspace-leaf.zmind-workspace-leaf,
+.workspace-split.mod-horizontal > .workspace-leaf.zmind-workspace-leaf {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+}
+
+.workspace-leaf-content[data-type="zmind-view"] {
+  flex: 1 1 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  max-height: none !important;
+}
+
+/* Do not use height:auto !important here — it overrides syncPaneFillHeight() pixel height and causes ~half-pane. */
+.workspace-leaf-content[data-type="zmind-view"] .view-content {
+  flex: 1 1 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  align-self: stretch !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+}
+
+/* Some themes only size the active tab leaf — still fill when Zmind is shown */
+.workspace-leaf.mod-active .workspace-leaf-content[data-type="zmind-view"] {
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+}
+
+.zmind-root {
+  flex: 1 1 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  align-self: stretch !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.zmind-shell {
+  position: relative;
+  flex: 1 1 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  width: 100%;
+}
+
+/* First flex row in shell — stays at top (absolute + short shell looked “mid‑viewport”). */
+.zmind-hint-bar {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  z-index: 3;
+  padding: 6px 10px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--background-primary) 88%, transparent);
+  border-bottom: 1px solid var(--background-modifier-border);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.zmind-hint-bar.zmind-hint--active {
+  color: var(--text-accent);
+}
+
+.zmind-map-host {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--background-primary);
+}
+
+.zmind-map-canvas {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mind Elixir — stronger selection ring (TS also sets --selected on .zmind-map-canvas) */
+.zmind-map-host .map-container me-tpc.selected {
+  outline: 3px solid var(--selected, var(--interactive-accent)) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px !important;
+}
+
+.zmind-map-host .map-container .selected {
+  outline-width: 3px !important;
+  outline-offset: 2px !important;
+}
+
+/* Block markdown (`marked.parse`) used to wrap topics in `<p>` — normalize so branch lines align. */
+.zmind-map-host me-tpc .text p {
+  margin: 0 !important;
+  display: inline !important;
+}
+
+/* Mind Elixir draws connectors in layout — ensure strokes visible on Obsidian themes */
+.zmind-map-host .map-container svg.lines path,
+.zmind-map-host .map-container svg.subLines path {
+  stroke: color-mix(in srgb, var(--interactive-accent) 55%, var(--text-muted)) !important;
+  stroke-width: 2px !important;
+  fill: none !important;
+}
+
+.zmind-map-host .map-container svg.lines path[fill]:not([fill="none"]),
+.zmind-map-host .map-container svg.subLines path[fill]:not([fill="none"]) {
+  fill: none !important;
+}
+
+/* --- Debug layout (toggle via view.ts ZMIND_DEBUG_LAYOUT) --- */
+.zmind-debug-layout.zmind-root {
+  outline: 2px solid #e11d48;
+  outline-offset: -1px;
+  box-sizing: border-box;
+}
+
+.zmind-debug-layout .zmind-shell {
+  outline: 2px solid #ea580c;
+  outline-offset: -2px;
+}
+
+.zmind-debug-layout .zmind-hint-bar {
+  outline: 1px solid #a855f7;
+  pointer-events: none;
+}
+
+.zmind-debug-layout .zmind-map-host {
+  outline: 2px solid #16a34a;
+  outline-offset: -2px;
+  background: color-mix(in srgb, #16a34a 6%, var(--background-primary));
+}
+
+.zmind-debug-layout .zmind-map-canvas {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+/* Mind Elixir roots */
+.zmind-debug-layout .map-container {
+  outline: 2px dashed #0891b2 !important;
+  outline-offset: -1px !important;
+}
+
+.zmind-debug-layout #map {
+  outline: 2px dotted #ca8a04 !important;
+  outline-offset: -1px !important;
+}
+
+.zmind-debug-layout #nodes {
+  outline: 1px solid #db2777 !important;
+  outline-offset: -1px !important;
+}

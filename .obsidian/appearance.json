@@ -1,9 +1,9 @@
 {
   "accentColor": "#35a6fd",
   "translucency": true,
-  "cssTheme": "Border",
+  "cssTheme": "Material Gruvbox",
   "baseFontSizeAction": true,
-  "theme": "moonstone",
+  "theme": "obsidian",
   "baseFontSize": 16,
   "enabledCssSnippets": [
     "page-width"

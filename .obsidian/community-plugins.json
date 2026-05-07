@@ -1,5 +1,6 @@
 [
   "obsidian-git",
+  "chronology",
   "obsidian-tagfolder",
   "tag-wrangler",
   "obsidian-plantuml",
@@ -10,13 +11,9 @@
   "homepage",
   "obsidian-image-toolkit",
   "global-proxy",
-  "obsidian-markmind",
   "obsidian-mind-map",
   "colored-tags",
   "darlal-switcher-plus",
   "smart-composer",
-  "obsidian-memos",
-  "quickadd",
-  "obsidian-tasks-plugin",
-  "calendar"
+  "zmind"
 ]

@@ -1,0 +1,9 @@
+{
+  "id": "zmind",
+  "name": "Zmind",
+  "version": "0.3.0",
+  "minAppVersion": "1.4.0",
+  "description": "Markdown mind map (Mind Elixir) with safe sync to headings and keyboard outline editing.",
+  "author": "",
+  "isDesktopOnly": false
+}

@@ -15,7 +15,7 @@ date: 2025-03-06
 
 - notion
 - obsidian
--  readpaper
+-  ReadPaper
 ## AI
 
 - 智谱清言
@@ -29,6 +29,7 @@ date: 2025-03-06
 
 ## 开发
 
+- [CCSwitch](https://github.com/farion1231/cc-switch)
 - clash
 - docker
 - cursor
@@ -57,10 +58,16 @@ date: 2025-03-06
 - [Sketchybar](https://felixkratz.github.io/SketchyBar/) 状态栏美化
 	- [sketchybar-config](https://github.com/TheGoldenPatrik1/sketchybar-config)
 - Plash 桌面显示web页面
+- iBar
 
 ## 清理工具
 
 - Tencent Lemon
+
+## 系统
+
+- [Antify](https://antifyapp.com/en/) 代理工具，可以为不同 App 设置代理
+- [WailBrew](https://www.wailbrew.app) brew 管理工具
 
 ## 其他
 
