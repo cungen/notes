@@ -21,11 +21,13 @@
     "node_modules/"
   ],
   "mobileToolbarCommands": [
-    "editor:insert-wikilink",
-    "editor:insert-embed",
-    "editor:attach-file",
     "editor:set-heading",
     "editor:toggle-bold",
+    "editor:insert-wikilink",
+    "editor:insert-embed",
+    "editor:indent-list",
+    "editor:unindent-list",
+    "editor:attach-file",
     "editor:toggle-italics",
     "editor:toggle-strikethrough",
     "editor:toggle-highlight",
@@ -33,8 +35,6 @@
     "editor:toggle-blockquote",
     "editor:insert-link",
     "editor:toggle-checklist-status",
-    "editor:indent-list",
-    "editor:unindent-list",
     "editor:undo",
     "editor:redo",
     "editor:configure-toolbar"
