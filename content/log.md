@@ -30,5 +30,5 @@ Use this file as an append-only timeline of ingest/query/lint operations.
 - layer: cards
 - actor: human
 - inputs: [[Cards/统一LLM-Wiki工作流方案]]
-- outputs: [[index]], [[log]]
+- outputs: [[🏡 home]], [[log]]
 - notes: Initialized split-layer index/log skeleton.

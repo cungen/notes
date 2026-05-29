@@ -2,7 +2,13 @@
 tags:
   - Home
 ---
+## Recent
 
+```dataview
+list from #area
+sort date desc
+limit 8
+```
 ## LLM-Wiki Layers
 
 - Raw sources: [[raw/README]]

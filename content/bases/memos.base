@@ -8,7 +8,9 @@ views:
       - file.name
       - file.tags
       - create_at
-    sort: []
+    sort:
+      - property: create_at
+        direction: DESC
     columnSize:
       file.name: 714
       file.tags: 451

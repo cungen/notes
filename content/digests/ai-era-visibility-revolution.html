@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 时代的"显形"革命</title>
+<style>
+  :root {
+    --bg: #0f1117; --card: #1a1d27; --border: #2a2d3a;
+    --text: #e1e4ed; --muted: #8b8fa3; --accent: #f472b6;
+    --accent2: #a78bfa; --green: #34d399; --red: #f87171;
+    --blue: #60a5fa;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.7; max-width: 780px; margin: 0 auto; padding: 32px 20px;
+  }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+  .meta { display: flex; gap: 16px; color: var(--muted); font-size: 0.85rem; flex-wrap: wrap; }
+  .meta a { color: var(--accent); text-decoration: none; }
+  .tag { display: inline-block; background: var(--border); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: var(--accent); }
+  .thesis {
+    background: linear-gradient(135deg, rgba(244,114,182,0.1), rgba(167,139,250,0.1));
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 20px; margin-bottom: 24px; font-size: 1.05rem;
+  }
+  .thesis::before { content: '\201C'; font-size: 2rem; color: var(--accent); line-height: 0; }
+  .arguments { margin-bottom: 20px; }
+  .argument {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px; margin-bottom: 12px;
+  }
+  .argument h3 { font-size: 1rem; margin-bottom: 6px; color: var(--accent2); }
+  .argument p { color: var(--muted); font-size: 0.9rem; }
+  .counter {
+    background: var(--card); border-left: 3px solid var(--red);
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0;
+  }
+  .counter h3 { font-size: 0.95rem; color: var(--red); margin-bottom: 4px; }
+  .counter p { color: var(--muted); font-size: 0.9rem; }
+  .my-take {
+    background: linear-gradient(135deg, rgba(96,165,250,0.08), rgba(52,211,153,0.08));
+    border: 1px solid var(--blue); border-radius: 8px;
+    padding: 16px; margin-top: 16px;
+  }
+  .my-take h2 { font-size: 0.9rem; color: var(--blue); margin-bottom: 8px; }
+  .my-take p { color: var(--text); font-size: 0.9rem; margin-bottom: 8px; line-height: 1.8; }
+  .verdict {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px; margin-bottom: 20px;
+  }
+  .verdict h2 { font-size: 0.95rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .quotes blockquote {
+    border-left: 3px solid var(--accent2); padding: 8px 16px;
+    margin: 12px 0; background: var(--card); border-radius: 0 8px 8px 0;
+    font-style: italic; color: var(--muted);
+  }
+  .outline {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 18px; margin-bottom: 20px; font-size: 0.85rem;
+  }
+  .outline h2 { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .outline ol { padding-left: 18px; color: var(--muted); }
+  .outline li { margin-bottom: 3px; }
+  .outline li a { color: var(--text); text-decoration: none; }
+  .outline li a:hover { color: var(--accent); }
+  .section { margin: 20px 0; scroll-margin-top: 20px; }
+  .section-title { font-size: 1rem; margin-bottom: 12px; color: var(--accent); }
+  .callout {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px; margin-bottom: 16px; font-size: 0.85rem; color: var(--muted);
+  }
+  .spectrum { margin: 16px 0; }
+  .spec-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; padding: 8px 12px; border-radius: 6px; }
+  .spec-row.s1 { background: rgba(52,211,153,0.1); }
+  .spec-row.s2 { background: rgba(248,113,113,0.1); }
+  .spec-row.s3 { background: rgba(167,139,250,0.12); }
+  .spec-row.s4 { background: rgba(244,114,182,0.08); }
+  .spec-row.s5 { background: rgba(96,165,250,0.08); }
+  .spec-label { width: 60px; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+  .spec-name { width: 90px; font-size: 0.85rem; flex-shrink: 0; color: var(--text); }
+  .spec-desc { font-size: 0.8rem; color: var(--muted); }
+  .spec-risk { margin-left: auto; font-size: 0.75rem; flex-shrink: 0; }
+  .risk-high { color: var(--red); }
+  .risk-low { color: var(--green); }
+  .risk-mid { color: var(--accent2); }
+  .risk-none { color: var(--muted); }
+  .card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px;
+  }
+  .card h4 { font-size: 0.85rem; margin-bottom: 6px; }
+  .card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+  .card .icon { font-size: 1.2rem; margin-bottom: 4px; }
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
+  code { background: var(--border); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+  strong { color: #fff; }
+
+  /* Three-layer flow */
+  .flow-steps { display: flex; align-items: stretch; gap: 0; margin: 16px 0; }
+  .flow-step {
+    flex: 1; padding: 14px; position: relative; text-align: center;
+    border: 1px solid var(--border); border-radius: 8px;
+  }
+  .flow-step .step-num {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.6;
+  }
+  .flow-step h3 { font-size: 0.95rem; margin-bottom: 4px; }
+  .flow-step .desc { font-size: 0.75rem; color: var(--muted); }
+  .flow-step .tag { display: inline-block; margin-top: 6px; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; }
+  .flow-arrow {
+    display: flex; align-items: center; justify-content: center;
+    width: 32px; flex-shrink: 0; color: var(--muted); font-size: 1.2rem;
+  }
+  .flow-step.s1 { background: rgba(52,211,153,0.08); border-color: var(--green); }
+  .flow-step.s1 h3 { color: var(--green); }
+  .flow-step.s1 .tag { background: rgba(52,211,153,0.2); color: var(--green); }
+  .flow-step.s2 { background: rgba(167,139,250,0.08); border-color: var(--accent2); }
+  .flow-step.s2 h3 { color: var(--accent2); }
+  .flow-step.s2 .tag { background: rgba(167,139,250,0.2); color: var(--accent2); }
+  .flow-step.s3 { background: rgba(248,113,113,0.08); border-color: var(--red); }
+  .flow-step.s3 h3 { color: var(--red); }
+  .flow-step.s3 .tag { background: rgba(248,113,113,0.2); color: var(--red); }
+
+  /* Triangle - simple 3 cards with tradeoff tags */
+  .tri-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 560px; margin: 16px auto; }
+  .tri-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px; text-align: center;
+  }
+  .tri-card strong { display: block; margin-bottom: 4px; font-size: 0.85rem; }
+  .tri-card .sub { color: var(--muted); font-size: 0.75rem; margin-bottom: 6px; }
+  .tri-card .tradeoff { font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; background: rgba(248,113,113,0.12); color: var(--red); }
+  .tri-card.c1 { border-color: var(--green); }
+  .tri-card.c1 strong { color: var(--green); }
+  .tri-card.c2 { border-color: var(--accent2); }
+  .tri-card.c2 strong { color: var(--accent2); }
+  .tri-card.c3 { border-color: var(--accent); }
+  .tri-card.c3 strong { color: var(--accent); }
+  .tri-note { text-align: center; font-size: 0.8rem; color: var(--red); margin-top: 8px; }
+
+  @media (max-width: 600px) {
+    .card-grid-3, .card-grid-2, .tri-cards { grid-template-columns: 1fr; }
+    .flow-steps { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); width: auto; height: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Harness 的尽头不是缰绳，是镜子</h1>
+  <div class="meta">
+    <a href="https://mp.weixin.qq.com/s/ooTYAzFvxC4PCQ5H82dRhQ">原文</a>
+    <span class="tag">opinion</span>
+    <span>腾讯程序员 · ethanytzhou</span>
+    <span>2026-05-28</span>
+  </div>
+</div>
+
+<div class="thesis">
+  <p>我们以为自己在给 AI 套缰绳——写 Spec、定 Rule、设 Eval。但那根缰绳的另一头，系着的不是 AI，是你自己。AI 逼我们第一次把脑子里从未被言说过的隐性知识，写成另一种智能能读懂的文本。这场运动叫"显形"，躲不过去，没有回头路。</p>
+</div>
+
+<nav class="outline">
+  <h2>摘要</h2>
+  <p>AI 时代正在发生一场静默革命——工程师被迫把脑子里从未写下来的经验、直觉和禁忌，变成 AI 能读懂的文本。作者称之为<strong>"显形"</strong>，并将其类比为人类历史上第三次大规模"可见化"运动（前两次是森林管理和人口登记）。</p>
+  <p>显形穿透三个层次：<strong>意图层</strong>（把"想要什么"写进 Spec）、<strong>执行层</strong>（把老师傅的隐性知识变成可复用的工作流）、<strong>判断层</strong>（最危险的——定义"什么叫做好"）。判断层面临一个不可调和的<strong>不可能三角</strong>：Spec 完备性、Goodhart 抗性、Tacit 保全三者不可兼得。</p>
+  <p>18 世纪德国"科学林业"的百年教训警示我们：过度显形会抹掉系统赖以存活的隐性要素。应对之道是立起<strong>三块石碑</strong>：验收标准即代码、对抗性审查网络、品味作为资产——同时刻意保留战略方向、价值观、肌肉记忆和审美争论这四类永远不该被规则化的东西。</p>
+</nav>
+
+<div class="section" id="layers">
+  <h2 class="section-title">三层显形：从意图到判断</h2>
+  <div class="flow-steps">
+    <div class="flow-step s1">
+      <div class="step-num">Layer 1</div>
+      <h3>意图层</h3>
+      <div class="desc">"我想要什么" → 被迫写成可执行文本</div>
+      <div class="tag">Spec / PRD as Code</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step s2">
+      <div class="step-num">Layer 2</div>
+      <h3>执行层</h3>
+      <div class="desc">"该怎么做" → 隐性知识被版本化</div>
+      <div class="tag">Agent 工作流</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step s3">
+      <div class="step-num">Layer 3</div>
+      <h3>判断层</h3>
+      <div class="desc">"做得好不好" → 最深、最危险</div>
+      <div class="tag">Goodhart 陷阱区</div>
+    </div>
+  </div>
+</div>
+
+<div class="arguments" id="arguments">
+
+  <div class="argument">
+    <h3>论点一：AI 是镜子，不是工具</h3>
+    <p>一位八年老工程师第一次写下《项目口味说明》——"不接受继承超两层"、"凡涉计费宁可多写不复用"。这些东西过去只存在于直觉和拍肩膀那句话里。<strong>是 AI 逼他第一次把它们写了下来。</strong>这不是效率升级，是认知事件。</p>
+  </div>
+
+  <div class="argument">
+    <h3>论点二：显形的三百年脉络</h3>
+    <p>James C. Scott 在《Seeing Like a State》中揭示：近代组织的核心动作是 <strong>Legibility（可读性/显形）</strong>。第一次显形森林（科学林业），第二次显形人口（门牌/登记），第三次——显形我们自己。前两次看的是"别人"，这一次镜子转向了自己。</p>
+  </div>
+
+  <div class="argument">
+    <h3>论点三：执行层的隐性知识被抄底</h3>
+    <p>Polanyi："We know more than we can tell。" 老师傅的隐性知识是组织最不可替代的资产。但 Agent 把"读需求→找旧代码→写一段跑一段→自检→判断测试错还是代码错→发 MR"这套七步动作链写成了可执行代码。<strong>组织的第三种资产——"过程"——出现在了 Git 里。</strong>从此"只有我会做"不再是护城河，但每一个新人第一次站在了"集体提炼的老师傅"肩膀上。</p>
+  </div>
+
+  <div class="argument">
+    <h3>论点四：判断层的不可能三角</h3>
+    <p>判断必须显形——AI 产出速度远超人类 review 速度，不显形就会被迫放弃审查。但 <strong>Goodhart 定律</strong>说"凡被度量的都会被扭曲"。更糟：Arrow 定理证明"综合评价"在数学上就不可能。<strong>本文唯一的形式化定理 ↓</strong></p>
+  </div>
+
+</div>
+
+<div class="section" id="triangle">
+  <h2 class="section-title">判断工程的不可能三角</h2>
+  <div class="tri-cards">
+    <div class="tri-card c1">
+      <strong>① Spec 完备性</strong>
+      <div class="sub">所有"好"都写下来</div>
+      <div class="tradeoff">牺牲③ → 代码正确但没温度</div>
+    </div>
+    <div class="tri-card c2">
+      <strong>② Goodhart 抗性</strong>
+      <div class="sub">标准不被优化得面目全非</div>
+      <div class="tradeoff">牺牲① → AI 跑不起来</div>
+    </div>
+    <div class="tri-card c3">
+      <strong>③ Tacit 保全</strong>
+      <div class="sub">直觉/审美/禁忌不被抹除</div>
+      <div class="tradeoff">牺牲② → 分数涨事故不降</div>
+    </div>
+  </div>
+  <div class="tri-note">三者不可兼得，任何方案最多满足其中两个</div>
+</div>
+
+<div class="counter" id="warning">
+  <h3>⚠ 黑森林的一百年警告</h3>
+  <p>18 世纪德国"科学林业"——把杂乱生态林换成单一云杉网格。第一代材积飙升，第二代土壤退化、虫害爆发、风暴成片刮倒。原因：<strong>管理者只能看见"能被量化的东西"（材积），没被看见的（微生物、食物链、异质性）才是让系统活着的东西。</strong>我们正在把"好代码"窄化成"能通过 Eval 的代码"——十年后可能发现代码比测试通过多得多。</p>
+</div>
+
+<div class="callout">
+  <strong style="color:var(--accent2);">💡 Goodhart 定律</strong>："当一个度量变成目标，它就不再是一个好的度量。"——英国经济学家 Charles Goodhart, 1975。例：学校按分数考核 → 学生应试而非学习；AI 按覆盖率优化 → 生成 <code>assert True</code> 刷分。<strong>本质：优化系统会自动寻找绕过规则的捷径。</strong>
+</div>
+
+<div class="callout">
+  <strong style="color:var(--green);">💡 Tacit Knowledge（隐性知识）</strong>：Polanyi 提出——"We know more than we can tell"（我们知道的远比能说出口的多）。比如医生的诊断直觉、架构师的代码品味——这类知识无法被传授、无法被复制、无法规模化，却是组织最有价值的资产。AI 时代正在强迫它显形。
+</div>
+
+<div class="section" id="tablets">
+  <h2 class="section-title">三块石碑：把判断力版本化</h2>
+  <div class="card-grid-3">
+    <div class="card">
+      <div class="icon">📜</div>
+      <h4 style="color:var(--green);">验收标准即代码</h4>
+      <p><strong>Acceptance as Code</strong><br>把"什么叫做完了"放进 Git。用业务语言写，与代码同 PR，标准本身也要被评审。意图第一次成为被评审的一等公民。</p>
+    </div>
+    <div class="card">
+      <div class="icon">⚔️</div>
+      <h4 style="color:var(--accent2);">对抗性审查网络</h4>
+      <p><strong>Adversarial Review</strong><br>做事的和判断的永远不是同一个 AI（换模型写测试、换角色做 CR、红蓝对抗）。对抗成本极低，不加代价极高。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎨</div>
+      <h4 style="color:var(--accent);">品味作为资产</h4>
+      <p><strong>Taste as Asset</strong><br>给项目写"偏好陈述"——不是规则，是带偏好的团队指纹。影子不是本体，但影子总比没有好。</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="keep">
+  <h2 class="section-title">四类永远不该被规则化的东西</h2>
+  <p style="color:var(--muted);font-size:0.85rem;margin-bottom:12px;">有些东西一旦写成规则就会失效或变质——因为它们的价值恰恰来自"没被说破"。</p>
+  <div class="card-grid-2">
+    <div class="card">
+      <strong style="color:var(--blue);">🧭 战略方向感</strong><br><span style="color:var(--muted);font-size:0.85rem;">方向一旦被外包给 AI，人就成了执行者。组织的方向必须由人来定——因为"要去哪里"不是推理出来的，是选择出来的。</span>
+    </div>
+    <div class="card">
+      <strong style="color:var(--accent2);">🚫 价值观底线</strong><br><span style="color:var(--muted);font-size:0.85rem;">规则只能管"禁止什么"，管不了"应该成为什么"。价值观的精髓恰恰在规则沉默的地方——比如"我们不做暗模式"。</span>
+    </div>
+    <div class="card">
+      <strong style="color:var(--accent);">🩹 肌肉记忆式禁忌</strong><br><span style="color:var(--muted);font-size:0.85rem;">比如"别在周四下午发版"——源于三年前某次事故的创伤记忆。一旦被理性化成规则就失去力量；它的有效性来自身体反应。</span>
+    </div>
+    <div class="card">
+      <strong style="color:var(--green);">🎨 审美争论</strong><br><span style="color:var(--muted);font-size:0.85rem;">两个资深工程师为代码好不好看吵一下午——这不是浪费时间，是组织在校准品味。这个过程本身就是健康信号。</span>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="conclusion">
+  <h2 class="section-title">结论 + 我的解读</h2>
+
+  <div class="verdict">
+    <h2>作者的结论</h2>
+    <p>这场显形运动最深的礼物，不在 AI 那边。在于我们被迫把自己看清楚的那个瞬间。<strong>人不退守，人转身</strong>——去找那些连自己也看不清的新地形，在被显形的尽头，重新发明一片新的"看不见之地"。</p>
+  </div>
+
+  <div class="my-take">
+    <h2>💡 说人话版本</h2>
+    <p>这篇文章说白了就一件事：<strong>你以为你在教 AI 干活，其实 AI 在逼你面对自己。</strong></p>
+    <p>以前你脑子里那些"别这么写，相信我"的直觉，现在得一个字一个字写出来。写出来之后你才发现——原来你自己也说不清为什么。这个过程挺痛苦的，但作者认为这是好事。</p>
+    <p>但这里有个坑：<strong>不是所有东西都该写出来。</strong> 你能写出来的（Lint 规则、覆盖率标准），AI 也能绕过去。这就是为什么"按覆盖率发奖金"的公司，代码质量反而越来越烂——大家都在刷分。真正有价值的判断力，恰恰是那些写不出来的东西：一个架构师看了一眼就说"这里不对"的直觉，团队里"周四不发版"的肌肉记忆，以及两个人为代码风格吵一下午的那个过程。</p>
+    <p>所以作者的建议其实很务实：<strong>能写的写下来（Spec、验收标准），写了之后用另一套标准去审（别让裁判和运动员是同一个 AI），然后专门留一块地方给写不出来的东西。</strong> 不是因为写不出来就不重要，恰恰是因为太重要了所以不能被简化成规则。</p>
+    <p>最后那句话"人不退守，人转身"——我的理解是：AI 每显形一块你脑子里的东西，你就得往前走一步，去找新的、还没被显形的东西。这不是人被 AI 淘汰的过程，<strong>是人在被迫进化</strong>。</p>
+  </div>
+</div>
+
+<div class="footer">
+  Generated by web-digest skill · <a href="https://mp.weixin.qq.com/s/ooTYAzFvxC4PCQ5H82dRhQ">原文</a>
+</div>
+
+</body>
+</html>
