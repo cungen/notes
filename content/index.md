@@ -3,6 +3,12 @@ tags:
   - Home
 ---
 
+## Recent 
+
+```dataview
+list from #area/软考
+```
+
 ## LLM-Wiki Layers
 
 - Raw sources: [[raw/README]]
