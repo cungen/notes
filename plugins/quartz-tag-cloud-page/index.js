@@ -94,12 +94,18 @@ const TagCloudContent = (options) => {
     const minSize = Number(options.minSize ?? 10)
     const maxSize = Number(options.maxSize ?? 60)
     const sizeRange = Math.max(maxSize - minSize, 1)
-    const total = Math.max(tagData.length - 1, 1)
 
-    // Rebalanced sizing: slightly larger top tags with tighter packing.
-    const words = tagData.map((t, index) => {
-      const rankRatio = 1 - index / total
-      const emphasized = Math.pow(rankRatio, 1.18)
+    // Size by actual occurrence count (not list rank), so low-count tags stay visually smaller.
+    const counts = tagData.map((t) => t.count)
+    const minCountVal = Math.min(...counts)
+    const maxCountVal = Math.max(...counts)
+
+    const words = tagData.map((t) => {
+      let ratio =
+        maxCountVal <= minCountVal ? 1 : (t.count - minCountVal) / (maxCountVal - minCountVal)
+      ratio = Math.max(0, Math.min(1, ratio))
+      // Slight curve: rare tags shrink a bit more; frequent tags stay prominent.
+      const emphasized = Math.pow(ratio, 0.92)
       const size = Math.max(minSize, Math.round(minSize + sizeRange * emphasized))
       return { ...t, size }
     })
@@ -242,10 +248,21 @@ const TagCloudContent = (options) => {
             .attr("text-anchor", "middle")
             .attr("transform", function (d) { return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")" })
             .text(function (d) { return d.text })
-            .on("click", function (_event, d) {
+            .on("click", function (event, d) {
+              event.preventDefault()
               var prefix = window.location.pathname.replace(/\\/tags-cloud\\/?$/, "/")
               if (prefix === window.location.pathname) prefix = "/"
-              window.location.href = prefix + "tags/" + encodeURIComponent(d.text) + "/"
+              var tagPath = String(d.text || "")
+                .split("/")
+                .filter(Boolean)
+                .map(function (seg) { return encodeURIComponent(seg) })
+                .join("/")
+              var url = prefix + "tags/" + tagPath
+              var a = document.createElement("a")
+              a.href = url
+              a.target = "_blank"
+              a.rel = "noopener noreferrer"
+              a.click()
             })
             .append("title")
             .text(function (d) { return d.text + " (" + d.count + ")" })
