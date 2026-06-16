@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Agent 时代开发流程 9 步法</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#eae6df; font-family:'Noto Sans SC',sans-serif; padding:36px 0; -webkit-font-smoothing:antialiased; }
+  .deck { display:flex; flex-direction:column; align-items:center; gap:24px; }
+  .card { width:1080px; max-width:96vw; aspect-ratio:3/4; border-radius:32px; overflow:hidden; position:relative; padding:80px 64px; display:flex; flex-direction:column; box-shadow:0 24px 60px -20px rgba(0,0,0,0.18); }
+  .c1 { background:linear-gradient(160deg,#1a1040 0%,#2d1b69 50%,#1e3a5f 100%); color:#f0eeff; }
+  .c2 { background:linear-gradient(160deg,#e8f0e3 0%,#c2dbb5 100%); color:#1a3a1a; }
+  .c3 { background:linear-gradient(160deg,#fff7e6 0%,#ffe0a8 100%); color:#3a2e10; }
+  .c4 { background:linear-gradient(160deg,#e7e8f5 0%,#bfc2e8 100%); color:#1d1f4a; }
+  .c5 { background:linear-gradient(160deg,#fce7f0 0%,#f5b3ce 100%); color:#4a1b34; }
+  .c6 { background:linear-gradient(160deg,#fff0e0 0%,#f7c99b 100%); color:#3a2210; }
+  .c7 { background:linear-gradient(160deg,#e0f2f1 0%,#a8d5d0 100%); color:#1a3a38; }
+  .c8 { background:linear-gradient(160deg,#f3e5f5 0%,#ce93d8 100%); color:#3a1a4a; }
+  .c9 { background:linear-gradient(160deg,#15140f 0%,#3a2620 100%); color:#fafaf7; }
+  .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:999px; background:rgba(255,255,255,0.55); backdrop-filter:blur(8px); font-size:18px; font-weight:600; align-self:flex-start; }
+  .badge-dark { background:rgba(255,255,255,0.12); color:#e0d8ff; border:1px solid rgba(255,255,255,0.15); }
+  .num { font-family:Georgia,serif; font-style:italic; font-size:110px; font-weight:700; line-height:0.9; opacity:0.7; margin-bottom:16px; }
+  h2 { font-size:56px; font-weight:900; line-height:1.15; letter-spacing:-0.01em; margin:0 0 28px; }
+  .body { font-size:27px; font-weight:500; line-height:1.6; opacity:0.85; max-width:26ch; }
+  .watermark { position:absolute; bottom:32px; right:36px; font-size:16px; opacity:0.45; font-weight:500; }
+  .pageno { position:absolute; top:36px; right:44px; font-family:'Inter',sans-serif; font-size:18px; font-weight:600; opacity:0.4; letter-spacing:0.08em; }
+  .hero { font-size:100px; font-weight:900; line-height:1.05; letter-spacing:-0.025em; margin:0; }
+  .highlight { color:#fbbf24; }
+  .io-label { display:inline-flex; padding:4px 14px; border-radius:8px; font-size:18px; font-weight:700; margin-bottom:10px; }
+  .io-in { background:rgba(0,0,0,0.08); }
+  .io-out { background:rgba(0,0,0,0.08); }
+  .io-label-dark { background:rgba(255,255,255,0.1); }
+  .tag-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+  .tag { padding:6px 16px; border-radius:999px; font-size:18px; font-weight:600; background:rgba(0,0,0,0.07); }
+  .tag-on-dark { background:rgba(255,255,255,0.12); color:#d0c8ff; }
+  .step-flow { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0; }
+  .flow-item { padding:8px 16px; border-radius:12px; font-size:20px; font-weight:600; background:rgba(0,0,0,0.06); }
+  .flow-arrow { font-size:24px; opacity:0.4; display:flex; align-items:center; }
+  .big-emoji { font-size:64px; margin-bottom:12px; }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 01 COVER -->
+  <div class="card c1">
+    <div class="pageno">01 / 09</div>
+    <div class="badge badge-dark">🏗️ 架构师必看 · 建议收藏</div>
+    <div style="margin:auto 0">
+      <div style="font-size:22px; font-weight:600; opacity:0.6; margin-bottom:20px">Agent / Vibe Coding 时代</div>
+      <h2 class="hero">代码不是<br/>瓶颈了<br/><span class="highlight">流程才是</span></h2>
+    </div>
+    <div style="font-size:22px; opacity:0.55; font-weight:500">5 阶段 · 9 步骤 · 每步有 Input / Output → 滑动查看</div>
+    <div class="watermark" style="color:rgba(255,255,255,0.4)">@Architecture Notes · 2026.06</div>
+  </div>
+
+  <!-- 02 核心原则 -->
+  <div class="card c2">
+    <div class="pageno">02 / 09</div>
+    <div class="num">Core</div>
+    <h2>角色的重新分配</h2>
+    <div class="body">
+      <div style="margin-bottom:20px; padding:16px 20px; border-radius:14px; background:rgba(255,255,255,0.5)">
+        <strong style="font-size:22px">🧑 Human</strong><br>
+        Define → Constrain → Verify<br>
+        <span style="opacity:0.65; font-size:22px">定义、约束、验证</span>
+      </div>
+      <div style="margin-bottom:20px; padding:16px 20px; border-radius:14px; background:rgba(255,255,255,0.5)">
+        <strong style="font-size:22px">🤖 Agent</strong><br>
+        Implement → Assemble → Iterate<br>
+        <span style="opacity:0.65; font-size:22px">实现、组装、迭代</span>
+      </div>
+      <div style="padding:16px 20px; border-radius:14px; background:rgba(255,255,255,0.5)">
+        <strong style="font-size:22px">⚙️ Automation</strong><br>
+        Enforce → Monitor → Alert<br>
+        <span style="opacity:0.65; font-size:22px">执行、监控、告警</span>
+      </div>
+    </div>
+    <div class="watermark">@Architecture Notes</div>
+  </div>
+
+  <!-- 03 Phase A: Step 1-2 -->
+  <div class="card c3">
+    <div class="pageno">03 / 09</div>
+    <div style="font-size:16px; font-weight:700; letter-spacing:0.1em; opacity:0.5; text-transform:uppercase; margin-bottom:8px">Phase A · Definition</div>
+    <h2>先定义「什么算好」</h2>
+    <div class="body">
+      <div style="padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.5); margin-bottom:14px">
+        <strong>Step 1 · 质量属性定义</strong><br><br>
+        不是「要快」→ 而是「P99 < 200ms」<br><br>
+        📤 Output: 质量属性效用树 + 架构驱动因素
+      </div>
+      <div style="padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.5)">
+        <strong>Step 2 · 架构设计与决策</strong><br><br>
+        选对 Agent 友好的风格（六边形、严格分层）<br><br>
+        📤 Output: ADR + 模块分解图
+      </div>
+    </div>
+    <div class="watermark">@Architecture Notes</div>
+  </div>
+
+  <!-- 04 Step 3: 复用资产 -->
+  <div class="card c4">
+    <div class="pageno">04 / 09</div>
+    <div style="font-size:16px; font-weight:700; letter-spacing:0.1em; opacity:0.5; margin-bottom:8px">Phase A · 杠杆率最高的步骤</div>
+    <div class="big-emoji">📦</div>
+    <h2>复用资产盘点</h2>
+    <div class="body">
+      <strong>这是 Agent 时代杠杆率最高的一步。</strong><br><br>
+      有组件目录 → Agent 直接复用 → 少写代码 → 少出 bug<br><br>
+      没有组件目录 → Agent 每次从零写 → 代码膨胀 → review 不完
+      <div style="margin-top:18px; padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.5)">
+        📤 Output: 复用映射表 + 组件目录<br>
+        🎯 目标复用率 ≥ 60%
+      </div>
+    </div>
+    <div class="watermark">@Architecture Notes</div>
+  </div>
+
+  <!-- 05 Phase B: Step 4-5 -->
+  <div class="card c5">
+    <div class="pageno">05 / 09</div>
+    <div style="font-size:16px; font-weight:700; letter-spacing:0.1em; opacity:0.5; margin-bottom:8px">Phase B · Specification</div>
+    <h2>先写契约和测试<br/>再让 Agent 干活</h2>
+    <div class="body">
+      <div style="padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.4); margin-bottom:14px">
+        <strong>Step 4 · 接口契约定义</strong><br><br>
+        契约 = 人对 Agent 的控制接口<br>
+        OpenAPI / Protobuf / GraphQL Schema<br>
+        📤 Output: API 契约 + 数据 Schema
+      </div>
+      <div style="padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.4)">
+        <strong>Step 5 · 测试规约</strong><br><br>
+        Given-When-Then 验收场景 + 契约测试<br>
+        📤 Output: 验收测试 + 契约测试
+      </div>
+    </div>
+    <div class="watermark">@Architecture Notes</div>
+  </div>
+
+  <!-- 06 Phase C: Step 6 -->
+  <div class="card c6">
+    <div class="pageno">06 / 09</div>
+    <div style="font-size:16px; font-weight:700; letter-spacing:0.1em; opacity:0.5; margin-bottom:8px">Phase C · Implementation</div>
+    <div class="big-emoji">🤖</div>
+    <h2>Agent 实现：<br/>组件搜索优先</h2>
+    <div class="body">
+      Agent 不是上来就写代码——<br><br>
+      <strong>① 搜组件目录 → 复用已有的</strong><br>
+      ② 搜不到 → 在契约内生成新实现<br>
+      ③ 自动补单元测试<br>
+      ④ 每个增量过 CI 门禁<br>
+      ⑤ 记录隐含设计选择
+      <div style="margin-top:16px; padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.4)">
+        📤 Output: 代码增量 + 单元测试 + Diff<br>
+        🚫 增量体量 ≤ 一次 Review 能看完的量
+      </div>
+    </div>
+    <div class="watermark">@Architecture Notes</div>
+  </div>
+
+  <!-- 07 Step 7-8: Verification -->
+  <div class="card c7">
+    <div class="pageno">07 / 09</div>
+    <div style="font-size:16px; font-weight:700; letter-spacing:0.1em; opacity:0.5; margin-bottom:8px">Phase D · Verification</div>
+    <h2>不逐行 Review<br/>验证架构合规</h2>
+    <div class="body">
+      <div style="padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.45); margin-bottom:14px">
+        <strong>Step 7 · 架构符合性</strong><br><br>
+        ⚙️ ArchUnit / Fitness Function 自动检查<br>
+        🧑 人类 Review 模块边界 + 耦合
+      </div>
+      <div style="padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.45)">
+        <strong>Step 8 · 集成验证</strong><br><br>
+        契约测试 → E2E 测试 → 性能基线<br>
+        📤 Output: 测试报告 + 遗留问题
+      </div>
+    </div>
+    <div class="watermark">@Architecture Notes</div>
+  </div>
+
+  <!-- 08 Step 9: Evolution -->
+  <div class="card c8">
+    <div class="pageno">08 / 09</div>
+    <div style="font-size:16px; font-weight:700; letter-spacing:0.1em; opacity:0.5; margin-bottom:8px">Phase E · Evolution</div>
+    <div class="big-emoji">🔄</div>
+    <h2>知识沉淀<br/>让下一轮更快</h2>
+    <div class="body">
+      <strong>Step 9 · 不是做完了就结束</strong><br><br>
+      ① 提取新组件 → 补充到组件目录<br>
+      ② 更新 ADR → 补隐含决策<br>
+      ③ 算复用率 → 跟踪趋势<br>
+      ④ 复盘 → 哪些约束被绕过了<br>
+      ⑤ 更新 Fitness Function
+      <div style="margin-top:16px; padding:14px 20px; border-radius:12px; background:rgba(255,255,255,0.35)">
+        🔄 流程是螺旋，不是直线<br>
+        每轮迭代都在加速
+      </div>
+    </div>
+    <div class="watermark">@Architecture Notes</div>
+  </div>
+
+  <!-- 09 CTA -->
+  <div class="card c9">
+    <div class="pageno">09 / 09</div>
+    <div style="margin:auto 0">
+      <div style="font-size:24px; font-weight:600; color:#e9b94a; margin-bottom:28px">总结 ✨</div>
+      <h2 class="hero" style="color:#fafaf7">约束<br/>比实现<br/><span style="color:#e9b94a">更重要</span></h2>
+      <div style="font-size:24px; opacity:0.65; margin-top:24px; line-height:1.6; max-width:22ch">
+        在代码写得越来越快的时代，<br>定义边界比写代码本身<br>更有价值。
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; font-size:22px; font-weight:600; margin-top:28px">
+      <span style="padding:10px 24px; background:#e9b94a; color:#15140f; border-radius:999px">关注</span>
+      <span style="padding:10px 24px; background:rgba(255,255,255,0.12); color:#fafaf7; border-radius:999px; border:1px solid rgba(255,255,255,0.2)">收藏</span>
+      <span style="padding:10px 24px; background:rgba(255,255,255,0.12); color:#fafaf7; border-radius:999px; border:1px solid rgba(255,255,255,0.2)">分享</span>
+    </div>
+    <div class="watermark" style="color:rgba(255,255,255,0.4)">@Architecture Notes · 软件架构 · Agent 时代</div>
+  </div>
+
+</div>
+</body>
+</html>

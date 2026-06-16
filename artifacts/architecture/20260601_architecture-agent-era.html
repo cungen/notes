@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Agent 时代哪些架构设计方法仍然有效</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1a1a1a; --paper:#fafaf7; --line:#e7e5e0; --mute:#6b6760; --accent:#6d28d9; --blue:#3b82f6; --green:#059669; --orange:#ea580c; }
+  body { font-family:'Inter','Noto Sans SC',sans-serif; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; }
+  .serif { font-family:'Noto Serif SC',Georgia,serif; }
+  .ornament { display:flex; align-items:center; justify-content:center; gap:14px; margin:48px 0; color:var(--mute); }
+  .ornament::before, .ornament::after { content:""; flex:1; max-width:60px; height:1px; background:var(--line); }
+  .article p { font-size:1.0625rem; line-height:1.8; color:#262421; margin:1.1em 0; max-width:65ch; }
+  .article h2 { font-family:'Noto Serif SC',serif; font-size:1.875rem; font-weight:700; margin:2.4em 0 0.8em; letter-spacing:-0.01em; }
+  .article blockquote { border-left:3px solid var(--accent); padding:0 0 0 20px; margin:1.6em 0; font-style:italic; color:var(--mute); font-family:'Noto Serif SC',serif; font-size:1.0625rem; line-height:1.7; }
+  .article a { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+  .grain::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:0.4; background-image:radial-gradient(circle at 12% 18%, rgba(109,40,217,0.04), transparent 45%), radial-gradient(circle at 88% 72%, rgba(59,130,246,0.03), transparent 50%); }
+  .method-card { border:1px solid var(--line); border-radius:16px; background:white/80; padding:28px 30px; margin:1.4em 0; }
+  .tag-green { display:inline-flex; align-items:center; padding:3px 12px; border-radius:999px; font-size:11px; font-weight:600; background:rgba(5,150,105,0.1); color:var(--green); margin-right:6px; }
+  .tag-blue { display:inline-flex; align-items:center; padding:3px 12px; border-radius:999px; font-size:11px; font-weight:600; background:rgba(59,130,246,0.1); color:var(--blue); margin-right:6px; }
+  .tag-orange { display:inline-flex; align-items:center; padding:3px 12px; border-radius:999px; font-size:11px; font-weight:600; background:rgba(234,88,12,0.1); color:var(--orange); margin-right:6px; }
+  .summary-box { background:linear-gradient(135deg, rgba(109,40,217,0.05), rgba(59,130,246,0.04)); border:1px solid rgba(109,40,217,0.15); border-radius:16px; padding:30px 34px; margin:2em 0; }
+</style>
+</head>
+<body class="grain">
+<article class="article max-w-[720px] mx-auto px-6 pt-20 pb-32">
+
+  <div class="text-[11px] font-medium tracking-[0.22em] uppercase text-[var(--accent)] mb-5">Essay · 2026.06 · 架构思考 / Architecture</div>
+  <h1 class="serif text-[3rem] leading-[1.08] font-black tracking-tight mb-5">
+    Agent 时代，哪些<span style="color:var(--accent)">架构设计方法</span>仍然有效？
+  </h1>
+  <p class="text-[1.125rem] leading-relaxed text-[var(--mute)] font-light max-w-[60ch] mb-8">
+    在大模型、Vibe Coding 和 Coding Agent 爆发的当下，代码生产速度远超质量保障速度。<br/>架构方法没有过时，但价值重心发生了深刻位移。
+  </p>
+  <div class="flex items-center gap-3 text-[12px] text-[var(--mute)] pb-12 border-b border-[var(--line)]">
+    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#6d28d9] to-[#3b82f6]"></div>
+    <span class="font-medium text-[var(--ink)]">Architecture Notes</span>
+    <span>&middot;</span><span>2026 年 6 月</span>
+    <span>&middot;</span><span>8 分钟阅读</span>
+  </div>
+
+  <h2>核心判断</h2>
+  <div class="summary-box">
+    <p><strong>大部分架构方法仍然有效，但它们的「价值重心」发生了位移——从「指导人写代码」转向「约束 Agent 不要写错代码」。</strong></p>
+    <p>在代码写得越来越快的时代，<strong>约束比实现更重要</strong>。</p>
+  </div>
+
+  <div class="ornament"><span class="serif italic">&middot; &middot; &middot;</span></div>
+
+  <h2>一、价值被放大的方法</h2>
+
+  <div class="method-card">
+    <h3><span class="tag-green">价值放大</span> 质量属性驱动的架构设计（ADD / ATAM）</h3>
+    <p>以前 ATAM 的痛点是需要大量时间做效用树、识别敏感点和权衡点。但在 Agent Coding 时代，这些方法的价值反而提升了。因为 <strong>Agent 不理解你的质量属性上下文</strong>。</p>
+    <blockquote>ATAM 中「架构驱动因素」的识别，变成了人和 Agent 之间最关键的接口。人不写代码了，但人必须写清楚这些约束。</blockquote>
+  </div>
+
+  <div class="method-card">
+    <h3><span class="tag-green">价值放大</span> 模块化分解与接口契约设计</h3>
+    <p>Agent 能在模块内部快速生成大量代码，但如果模块边界不清、接口定义模糊，集成会变成灾难。</p>
+    <blockquote>你不需要管 Agent 怎么命名变量，但你需要管两个模块之间的契约是什么。</blockquote>
+  </div>
+
+  <div class="method-card">
+    <h3><span class="tag-green">价值放大</span> 架构决策记录（ADR）</h3>
+    <p>Agent 每次会话没有长期的上下文记忆。ADR 提供了人和 Agent 之间的<strong>决策上下文传递机制</strong>。</p>
+  </div>
+
+  <div class="method-card">
+    <h3><span class="tag-green">价值放大</span> 自动化质量门禁</h3>
+    <p>架构约束如果不能被自动化验证，在 Agent 高速产出代码的环境下就等于没有约束。</p>
+  </div>
+
+  <div class="ornament"><span class="serif italic">&middot; &middot; &middot;</span></div>
+
+  <h2>二、需要调整用法的方法</h2>
+
+  <div class="method-card">
+    <h3><span class="tag-blue">需要调整</span> 架构风格的选择</h3>
+    <p>现在要多考虑一个维度：<strong>哪种风格对 Agent 更友好、更容易约束</strong>。六边形架构对 Agent 非常友好，因为端口接口是人为定义的契约。</p>
+  </div>
+
+  <div class="method-card">
+    <h3><span class="tag-blue">需要调整</span> 迭代和增量开发</h3>
+    <p>迭代的重点从「产出了多少代码」转向<strong>「验证了多少架构假设」</strong>。</p>
+  </div>
+
+  <div class="method-card">
+    <h3><span class="tag-blue">需要调整</span> 代码评审</h3>
+    <p>焦点从「逐行看逻辑」转向「评审架构符合性和集成风险」。</p>
+  </div>
+
+  <div class="ornament"><span class="serif italic">&middot; &middot; &middot;</span></div>
+
+  <h2>三、价值明显下降的方法</h2>
+
+  <div class="method-card" style="opacity:0.7; border-style:dashed;">
+    <h3><span class="tag-orange">价值下降</span></h3>
+    <p>详细的实现级设计（类图、时序图细化）· 编码规范层面的管控 · 以人力估算为基础的项目管理</p>
+  </div>
+
+  <div class="ornament"><span class="serif italic">&middot; &middot; &middot;</span></div>
+
+  <h2>总结</h2>
+  <div class="summary-box">
+    <p><strong>人负责：</strong>定义质量属性 → 划分模块边界 → 定义接口契约 → 记录架构决策 → 设置自动化架构约束</p>
+    <p><strong>Agent 负责：</strong>在契约内生成实现 → 补充单元测试 → 填充适配器 → 生成样板代码</p>
+    <p><strong>自动化负责：</strong>验证契约合规性 → 检查架构 Fitness Function → 运行质量门禁</p>
+  </div>
+
+  <blockquote>架构方法没有过时，但价值重心从「指导实现」转移到了「定义边界和约束」。在代码写得越来越快的时代，<strong>约束比实现更重要</strong>。</blockquote>
+
+</article>
+</body>
+</html>

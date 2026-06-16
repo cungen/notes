@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agent 时代的软件开发全流程</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1a1a1a; --paper:#fafaf7; --line:#e7e5e0; --mute:#6b6760; --accent:#6d28d9; --green:#059669; --blue:#3b82f6; --orange:#ea580c; }
+  body { font-family:'Inter','Noto Sans SC',sans-serif; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; }
+  .serif { font-family:'Noto Serif SC',Georgia,serif; }
+  .ornament { display:flex; align-items:center; justify-content:center; gap:14px; margin:48px 0; color:var(--mute); }
+  .ornament::before, .ornament::after { content:""; flex:1; max-width:60px; height:1px; background:var(--line); }
+  .article p { font-size:1.0625rem; line-height:1.85; color:#262421; margin:1.1em 0; max-width:65ch; }
+  .article h2 { font-family:'Noto Serif SC',serif; font-size:1.8rem; font-weight:700; margin:2.2em 0 0.7em; }
+  .article h3 { font-size:1.25rem; font-weight:700; margin:1.8em 0 0.5em; }
+  .article blockquote { border-left:3px solid var(--accent); padding:0 0 0 20px; margin:1.6em 0; font-style:italic; color:var(--mute); font-family:'Noto Serif SC',serif; }
+  .article ul, .article ol { font-size:1.0625rem; line-height:1.85; color:#262421; margin:1.1em 0; padding-left:1.6em; max-width:65ch; }
+  .article li { margin:0.4em 0; }
+  .article strong { font-weight:600; color:var(--ink); }
+  .grain::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:0.4; }
+  .step-section { margin:2em 0; padding:28px 30px; border-radius:16px; border:1px solid var(--line); background:rgba(255,255,255,0.7); }
+  .step-section h3 { margin-top:0; }
+  .io-row { display:flex; gap:16px; margin:14px 0; }
+  .io-box { flex:1; border-radius:10px; padding:14px 18px; }
+  .io-in { background:rgba(5,150,105,0.06); border:1px solid rgba(5,150,105,0.15); }
+  .io-out { background:rgba(109,40,217,0.06); border:1px solid rgba(109,40,217,0.15); }
+  .io-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px; }
+  .io-in .io-label { color:var(--green); }
+  .io-out .io-label { color:var(--accent); }
+  .gate { background:rgba(234,88,12,0.05); border:1px dashed rgba(234,88,12,0.25); border-radius:8px; padding:10px 16px; margin-top:12px; font-size:0.92rem; }
+  .gate strong { color:var(--orange); }
+  .phase-label { display:inline-flex; align-items:center; gap:8px; padding:6px 18px; border-radius:999px; font-size:0.8rem; font-weight:700; letter-spacing:0.1em; margin-bottom:8px; }
+  .phase-a { background:rgba(109,40,217,0.08); color:var(--accent); }
+  .phase-b { background:rgba(5,150,105,0.08); color:var(--green); }
+  .phase-c { background:rgba(59,130,246,0.08); color:var(--blue); }
+  .phase-d { background:rgba(234,88,12,0.08); color:var(--orange); }
+  .phase-e { background:linear-gradient(135deg, rgba(109,40,217,0.08), rgba(5,150,105,0.08)); color:#4a1a6a; }
+  .summary-table { width:100%; border-collapse:collapse; margin:1.4em 0; font-size:0.95rem; }
+  .summary-table th { background:#f5f3ff; padding:10px 14px; text-align:left; font-weight:600; border-bottom:2px solid var(--line); }
+  .summary-table td { padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+</style>
+</head>
+<body class="grain">
+<article class="article max-w-[720px] mx-auto px-6 pt-20 pb-32">
+  <div class="text-[11px] font-medium tracking-[0.22em] uppercase text-[var(--accent)] mb-5">方法论 · 2026.06 · 架构驱动</div>
+  <h1 class="serif text-[2.8rem] leading-[1.1] font-black tracking-tight mb-5">Agent 时代，<br/>软件开发全流程该怎么做？</h1>
+  <p class="text-[1.125rem] leading-relaxed text-[var(--mute)] font-light max-w-[60ch] mb-8">5 阶段 9 步骤，每步定义 Input / Output / Activity / Actor。</p>
+  <div class="flex items-center gap-3 text-[12px] text-[var(--mute)] pb-10 border-b border-[var(--line)]">
+    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#6d28d9] to-[#3b82f6]"></div>
+    <span class="font-medium text-[var(--ink)]">Architecture Notes</span><span>&middot;</span><span>2026 年 6 月</span><span>&middot;</span><span>12 分钟阅读</span>
+  </div>
+  <h2>核心判断</h2>
+  <blockquote>Human: <strong>Define → Constrain → Verify</strong><br>Agent: <strong>Implement → Assemble → Iterate</strong><br>Automation: <strong>Enforce → Monitor → Alert</strong></blockquote>
+  <p>开发流程不是「AI 替代某些步骤」，而是<strong>人类角色从「执行」转向「指定、约束和验证」</strong>。在代码写得越来越快的时代，<strong>约束比实现更重要</strong>。</p>
+  <div class="ornament"><span class="serif italic">· · ·</span></div>
+  <div class="phase-label phase-a">Phase A · 定义阶段</div>
+  <p>在 Agent 写下第一行代码之前，必须完成三个定义工作。</p>
+  <div class="step-section"><h3>Step 1 · 需求分析与质量属性定义</h3><p>不只是「功能列表」，而是<strong>显式定义质量属性目标</strong>。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">业务需求 / 用户故事<br>利益相关者期望<br>行业/合规约束</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>质量属性效用树</strong><br>架构驱动因素<br>质量属性场景（可度量）</p></div></div><div class="gate"><strong>Quality Gate:</strong> 不是「要快」，而是「P99 &lt; 200ms」。</div></div>
+  <div class="step-section"><h3>Step 2 · 架构设计与决策</h3><p>选择架构风格、划分模块边界、记录关键决策。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">质量属性效用树<br>架构驱动因素清单<br>团队技术栈</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>架构风格选型</strong><br><strong>模块分解图</strong><br><strong>ADR</strong></p></div></div></div>
+  <div class="step-section" style="border-color:rgba(109,40,217,0.25); background:rgba(109,40,217,0.03);"><h3>Step 3 · 复用资产盘点与组件规划</h3><blockquote style="border-color:var(--accent); font-style:normal; font-weight:600; color:var(--accent);">Agent 时代杠杆率最高的步骤。</blockquote><p>有组件目录 → Agent 直接复用 → 少写代码 → 少出 bug。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">模块分解图<br>现有组件库<br>开源可用组件</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>复用映射表</strong><br><strong>组件目录</strong><br>复用率目标 ≥ 60%</p></div></div></div>
+  <div class="ornament"><span class="serif italic">· · ·</span></div>
+  <div class="phase-label phase-b">Phase B · 规约阶段</div>
+  <div class="step-section"><h3>Step 4 · 接口契约定义</h3><p>契约是人与 Agent 之间最重要的接口。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">模块分解图 + ADR<br>复用映射表</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>API 契约</strong><br><strong>数据 Schema</strong></p></div></div></div>
+  <div class="step-section"><h3>Step 5 · 测试规约</h3><p>先写测试，再让 Agent 实现。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">功能需求<br>接口契约</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>验收测试</strong><br><strong>契约测试</strong></p></div></div></div>
+  <div class="ornament"><span class="serif italic">· · ·</span></div>
+  <div class="phase-label phase-c">Phase C · 实现阶段</div>
+  <div class="step-section"><h3>Step 6 · 增量实现（Agent 主导）</h3><p>核心：<strong>组件搜索优先</strong>。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">接口契约<br>验收测试<br>组件目录</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>代码增量</strong><br><strong>单元测试</strong><br><strong>Diff</strong></p></div></div><div class="gate"><strong>Quality Gate:</strong> CI 绿灯；复用率达标。</div></div>
+  <div class="step-section"><h3>Step 7 · 架构符合性验证</h3><p>验证模块边界、组件使用、耦合。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">代码增量<br>架构约束规则</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>架构合规报告</strong><br><strong>Review 意见</strong></p></div></div></div>
+  <div class="ornament"><span class="serif italic">· · ·</span></div>
+  <div class="phase-label phase-d">Phase D · 验证阶段</div>
+  <div class="step-section"><h3>Step 8 · 集成与端到端验证</h3><p>契约测试 → E2E 测试 → 性能基线 → 安全扫描。</p><div class="io-row"><div class="io-box io-in"><div class="io-label">→ Input</div><p style="font-size:0.92rem; margin:0.3em 0">通过验证的代码<br>契约测试套件</p></div><div class="io-box io-out"><div class="io-label">Output →</div><p style="font-size:0.92rem; margin:0.3em 0"><strong>集成/E2E 测试报告</strong><br><strong>性能基线对比</strong></p></div></div></div>
+  <div class="ornament"><span class="serif italic">· · ·</span></div>
+  <div class="phase-label phase-e">Phase E · 演进阶段</div>
+  <div class="step-section"><h3>Step 9 · 知识沉淀与资产演进</h3><ul><li><strong>提取新组件</strong> → 补充到组件目录</li><li><strong>更新 ADR</strong> → 补充隐含决策</li><li><strong>计算复用率</strong> → 跟踪趋势</li><li><strong>复盘</strong> → 哪些约束被绕过了？</li><li><strong>更新 Fitness Function</strong></li></ul></div>
+  <div class="ornament"><span class="serif italic">· · ·</span></div>
+  <h2>全流程总览</h2>
+  <table class="summary-table"><thead><tr><th>Step</th><th>Phase</th><th>Actor</th><th>Key Output</th></tr></thead><tbody>
+  <tr><td>1</td><td>Definition</td><td>Human</td><td>质量属性效用树</td></tr>
+  <tr><td>2</td><td>Definition</td><td>Human + Agent</td><td>架构风格 + ADR</td></tr>
+  <tr><td style="font-weight:700">3</td><td>Definition</td><td>Human + Agent</td><td style="font-weight:600">复用映射表 + 组件目录</td></tr>
+  <tr><td>4</td><td>Specification</td><td>Human</td><td>API 契约 + Schema</td></tr>
+  <tr><td>5</td><td>Specification</td><td>Human + Agent</td><td>验收测试 + 契约测试</td></tr>
+  <tr><td>6</td><td>Implementation</td><td>Agent + Human</td><td>代码增量 + 单元测试</td></tr>
+  <tr><td>7</td><td>Verification</td><td>Automation + Human</td><td>架构合规报告</td></tr>
+  <tr><td>8</td><td>Verification</td><td>Automation + Human</td><td>集成测试报告</td></tr>
+  <tr><td>9</td><td>Evolution</td><td>Human + Agent</td><td>组件库 + 复盘报告</td></tr></tbody></table>
+  <blockquote>流程不是直线，是<strong>螺旋</strong>。每一轮迭代都在加深组件库、收紧架构约束、提高复用率。</blockquote>
+</article>
+</body>
+</html>
